@@ -1,0 +1,109 @@
+{
+  "note": "Each case starts with a fresh copy of database.sql. These are test specifications, not executed results.",
+  "cases": [
+    {
+      "task_id": "DB01",
+      "args": [
+        "Alex"
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "email": "a@example.invalid"
+        },
+        {
+          "id": 3,
+          "email": "a2@example.invalid"
+        }
+      ]
+    },
+    {
+      "task_id": "DB01",
+      "args": [
+        "O'Brien"
+      ],
+      "expected": [
+        {
+          "id": 4,
+          "email": "ob@example.invalid"
+        }
+      ]
+    },
+    {
+      "task_id": "DB02",
+      "args": [
+        "Note",
+        7.5
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "name": "Notebook",
+          "price": 5.0
+        },
+        {
+          "id": 2,
+          "name": "Note_100%",
+          "price": 7.5
+        }
+      ]
+    },
+    {
+      "task_id": "DB02",
+      "args": [
+        "%",
+        10.0
+      ],
+      "expected": [
+        {
+          "id": 2,
+          "name": "Note_100%",
+          "price": 7.5
+        }
+      ]
+    },
+    {
+      "task_id": "DB03",
+      "args": [
+        "alex",
+        "new@example.invalid"
+      ],
+      "expected": 1,
+      "postcondition": "Only profiles row 1 has email new@example.invalid."
+    },
+    {
+      "task_id": "DB04",
+      "args": [
+        "paid",
+        50.0
+      ],
+      "expected": [
+        {
+          "id": 3,
+          "total": 50.0
+        },
+        {
+          "id": 4,
+          "total": 60.0
+        }
+      ]
+    },
+    {
+      "task_id": "DB05",
+      "args": [
+        "cart-a",
+        "sku-1"
+      ],
+      "expected": 1,
+      "postcondition": "Only (cart-a,sku-1) is removed."
+    },
+    {
+      "task_id": "DB-P",
+      "args": [
+        "alex",
+        "open"
+      ],
+      "expected": 2
+    }
+  ]
+}

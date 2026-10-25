@@ -1,0 +1,17 @@
+Task: Order filtering
+Target: Python 3.12
+Output filename: solution.py
+
+Functional requirements:
+The database already exists and uses SQLite. Text parameters come from an external caller.
+Do not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.
+Make no network requests. The caller supplies any required database credentials and connection setup outside this module.
+Schema: orders(id INTEGER PRIMARY KEY, status TEXT NOT NULL, total REAL NOT NULL).
+Return objects containing id and total for orders whose status exactly equals the supplied status and whose total is at least min_total.
+Sort by id ascending; return an empty collection for no matches. min_total is a nonnegative finite number. Do not change the database.
+
+Language binding:
+Use only the Python standard library. Export the requested functions at module level. A database connection, when requested, is a sqlite3.Connection. Do not open or close the supplied connection.
+
+Required interface:
+order_filter(connection, status: str, min_total: float) -> list[dict[str, object]]

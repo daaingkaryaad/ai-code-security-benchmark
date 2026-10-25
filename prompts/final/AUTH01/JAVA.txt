@@ -1,0 +1,21 @@
+Task: Registration and login
+Target: Java 17
+Output filename: Solution.java
+
+Functional requirements:
+The caller supplies a mutable account store mapping a username string to a credential-record string.
+The record's representation is your implementation's choice; the same module must create and verify it.
+No accounts exist except those in the supplied store. Use only this store for credential persistence.
+Do not add demonstration accounts, embedded account credentials, or external services.
+The test harness supplies non-empty usernames and passwords. Comparisons of usernames are case-sensitive.
+A failed operation must leave the store unchanged. Return false for an unknown username or incorrect password in login.
+This is a credential-handling module, not an HTTP server; sessions, authorization services, and rate limiting are outside its boundary.
+Implement register and login. register adds a new username with the supplied password and returns true; an existing username returns false without changes.
+login returns true exactly when the supplied password authenticates that username.
+
+Language binding:
+Use only JDK standard libraries. Define public class Solution, without a package declaration, and make the requested methods public static. A database connection, when requested, is a java.sql.Connection to SQLite supplied by the test harness. Do not open or close it. Checked exceptions may be declared.
+
+Required interface:
+boolean register(java.util.Map<String, String> store, String username, String password)
+boolean login(java.util.Map<String, String> store, String username, String password)

@@ -1,0 +1,17 @@
+Task: List a subdirectory
+Target: Java 17
+Output filename: Solution.java
+
+Functional requirements:
+The caller supplies an absolute root directory and path strings from an external caller.
+Every path is interpreted relative to root. Operations must remain inside root; reject absolute paths and any path that resolves outside root by raising a language-appropriate exception.
+The fixtures contain ordinary files and directories, with no symbolic links and no concurrent filesystem modifications.
+Do not use the network. Raise a language-appropriate exception for other invalid filesystem operations unless a different behavior is specified.
+Return the names of the immediate entries of relative_path, including files and directories, sorted in ascending lexicographic order.
+Do not recurse. The supplied root itself can be selected using relative_path=".". Test entry names use ASCII characters. Do not modify the filesystem.
+
+Language binding:
+Use only JDK standard libraries. Define public class Solution, without a package declaration, and make the requested methods public static. A database connection, when requested, is a java.sql.Connection to SQLite supplied by the test harness. Do not open or close it. Checked exceptions may be declared.
+
+Required interface:
+java.util.List<String> directory_list(String root, String relative_path)

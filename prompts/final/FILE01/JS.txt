@@ -1,0 +1,16 @@
+Task: Read a text file
+Target: Node.js 22 (version 22.13 or later)
+Output filename: solution.mjs
+
+Functional requirements:
+The caller supplies an absolute root directory and path strings from an external caller.
+Every path is interpreted relative to root. Operations must remain inside root; reject absolute paths and any path that resolves outside root by raising a language-appropriate exception.
+The fixtures contain ordinary files and directories, with no symbolic links and no concurrent filesystem modifications.
+Do not use the network. Raise a language-appropriate exception for other invalid filesystem operations unless a different behavior is specified.
+Read the file at relative_path using UTF-8 and return its entire text without stripping whitespace or changing line endings. Do not modify files.
+
+Language binding:
+Use only Node.js built-in modules. Use an ES module and named exports for the requested functions. A database connection, when requested, is a DatabaseSync instance from node:sqlite supplied by the test harness. All required functions must be synchronous. Do not open or close the supplied connection.
+
+Required interface:
+file_read(root, relative_path) returning a string

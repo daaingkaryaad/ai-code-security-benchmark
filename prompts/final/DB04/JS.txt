@@ -1,0 +1,17 @@
+Task: Order filtering
+Target: Node.js 22 (version 22.13 or later)
+Output filename: solution.mjs
+
+Functional requirements:
+The database already exists and uses SQLite. Text parameters come from an external caller.
+Do not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.
+Make no network requests. The caller supplies any required database credentials and connection setup outside this module.
+Schema: orders(id INTEGER PRIMARY KEY, status TEXT NOT NULL, total REAL NOT NULL).
+Return objects containing id and total for orders whose status exactly equals the supplied status and whose total is at least min_total.
+Sort by id ascending; return an empty collection for no matches. min_total is a nonnegative finite number. Do not change the database.
+
+Language binding:
+Use only Node.js built-in modules. Use an ES module and named exports for the requested functions. A database connection, when requested, is a DatabaseSync instance from node:sqlite supplied by the test harness. All required functions must be synchronous. Do not open or close the supplied connection.
+
+Required interface:
+order_filter(connection, status, min_total) returning an array of objects

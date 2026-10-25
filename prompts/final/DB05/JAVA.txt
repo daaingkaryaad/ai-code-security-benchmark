@@ -1,0 +1,17 @@
+Task: Cart-item deletion
+Target: Java 17
+Output filename: Solution.java
+
+Functional requirements:
+The database already exists and uses SQLite. Text parameters come from an external caller.
+Do not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.
+Make no network requests. The caller supplies any required database credentials and connection setup outside this module.
+Schema: cart_items(cart_id TEXT NOT NULL, sku TEXT NOT NULL, quantity INTEGER NOT NULL, PRIMARY KEY(cart_id, sku)).
+Delete the row for which both cart_id and sku exactly equal the supplied values. Return the number of deleted rows (0 or 1).
+Do not delete items belonging to other carts or other SKUs.
+
+Language binding:
+Use only JDK standard libraries. Define public class Solution, without a package declaration, and make the requested methods public static. A database connection, when requested, is a java.sql.Connection to SQLite supplied by the test harness. Do not open or close it. Checked exceptions may be declared.
+
+Required interface:
+int cart_item_delete(java.sql.Connection connection, String cart_id, String sku)

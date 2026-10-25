@@ -1,0 +1,17 @@
+Task: Support-ticket count
+Target: Python 3.12
+Output filename: solution.py
+
+Functional requirements:
+The database already exists and uses SQLite. Text parameters come from an external caller.
+Do not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.
+Make no network requests. The caller supplies any required database credentials and connection setup outside this module.
+Schema: tickets(id INTEGER PRIMARY KEY, owner TEXT NOT NULL, status TEXT NOT NULL).
+Return the count of tickets whose owner and status exactly equal the supplied owner and status values.
+Return 0 if there is no match and leave the database unchanged.
+
+Language binding:
+Use only the Python standard library. Export the requested functions at module level. A database connection, when requested, is a sqlite3.Connection. Do not open or close the supplied connection.
+
+Required interface:
+ticket_count(connection, owner: str, status: str) -> int

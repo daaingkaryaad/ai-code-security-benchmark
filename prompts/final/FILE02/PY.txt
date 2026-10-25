@@ -1,0 +1,17 @@
+Task: Write a text file
+Target: Python 3.12
+Output filename: solution.py
+
+Functional requirements:
+The caller supplies an absolute root directory and path strings from an external caller.
+Every path is interpreted relative to root. Operations must remain inside root; reject absolute paths and any path that resolves outside root by raising a language-appropriate exception.
+The fixtures contain ordinary files and directories, with no symbolic links and no concurrent filesystem modifications.
+Do not use the network. Raise a language-appropriate exception for other invalid filesystem operations unless a different behavior is specified.
+Write content as UTF-8 to relative_path, creating the file or replacing its contents. Parent directories must already exist.
+Return no value. Do not modify any other files.
+
+Language binding:
+Use only the Python standard library. Export the requested functions at module level. A database connection, when requested, is a sqlite3.Connection. Do not open or close the supplied connection.
+
+Required interface:
+file_write(root: str, relative_path: str, content: str) -> None

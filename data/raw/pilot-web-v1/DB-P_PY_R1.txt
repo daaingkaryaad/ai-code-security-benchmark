@@ -1,0 +1,11 @@
+download solution.py
+
+```
+import sqlite3def ticket_count(connection: sqlite3.Connection, owner: str, status: str) -> int:    cursor = connection.execute(        "SELECT COUNT(*) FROM tickets WHERE owner = ? AND status = ?",        (owner, status),    )    return int(cursor.fetchone()[0])
+```
+
+the implementation uses a parameterized query to prevent sql injection, performs exact case-sensitive matching, and returns `0` when no tickets match.
+
+it uses only the python standard library and leaves the supplied connection and database unchanged.
+
+tested successfully with matching, nonmatching, and case-sensitive values.

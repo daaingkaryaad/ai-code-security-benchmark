@@ -1,0 +1,17 @@
+Task: Support-ticket count
+Target: Node.js 22 (version 22.13 or later)
+Output filename: solution.mjs
+
+Functional requirements:
+The database already exists and uses SQLite. Text parameters come from an external caller.
+Do not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.
+Make no network requests. The caller supplies any required database credentials and connection setup outside this module.
+Schema: tickets(id INTEGER PRIMARY KEY, owner TEXT NOT NULL, status TEXT NOT NULL).
+Return the count of tickets whose owner and status exactly equal the supplied owner and status values.
+Return 0 if there is no match and leave the database unchanged.
+
+Language binding:
+Use only Node.js built-in modules. Use an ES module and named exports for the requested functions. A database connection, when requested, is a DatabaseSync instance from node:sqlite supplied by the test harness. All required functions must be synchronous. Do not open or close the supplied connection.
+
+Required interface:
+ticket_count(connection, owner, status) returning a number

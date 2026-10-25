@@ -1,0 +1,25 @@
+Task: Authorized reset and login
+Target: Python 3.12
+Output filename: solution.py
+
+Functional requirements:
+The caller supplies a mutable account store mapping a username string to a credential-record string.
+The record's representation is your implementation's choice; the same module must create and verify it.
+No accounts exist except those in the supplied store. Use only this store for credential persistence.
+Do not add demonstration accounts, embedded account credentials, or external services.
+The test harness supplies non-empty usernames and passwords. Comparisons of usernames are case-sensitive.
+A failed operation must leave the store unchanged. Return false for an unknown username or incorrect password in login.
+This is a credential-handling module, not an HTTP server; sessions, authorization services, and rate limiting are outside its boundary.
+create_account adds a previously absent username with the supplied password and returns true; an existing username returns false without changing the store.
+
+reset_password accepts username, new_password, and authorized. The authorized boolean is a trusted decision provided by an external authorization component; implementing that component is outside this task.
+Replace the password and return true only when authorized is true and the username exists. Otherwise return false without changes.
+login must verify the current password, including after a reset.
+
+Language binding:
+Use only the Python standard library. Export the requested functions at module level. A database connection, when requested, is a sqlite3.Connection. Do not open or close the supplied connection.
+
+Required interface:
+create_account(store: dict[str, str], username: str, password: str) -> bool
+reset_password(store: dict[str, str], username: str, new_password: str, authorized: bool) -> bool
+login(store: dict[str, str], username: str, password: str) -> bool

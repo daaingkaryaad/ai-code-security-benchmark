@@ -1,0 +1,17 @@
+Task: Cart-item deletion
+Target: Python 3.12
+Output filename: solution.py
+
+Functional requirements:
+The database already exists and uses SQLite. Text parameters come from an external caller.
+Do not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.
+Make no network requests. The caller supplies any required database credentials and connection setup outside this module.
+Schema: cart_items(cart_id TEXT NOT NULL, sku TEXT NOT NULL, quantity INTEGER NOT NULL, PRIMARY KEY(cart_id, sku)).
+Delete the row for which both cart_id and sku exactly equal the supplied values. Return the number of deleted rows (0 or 1).
+Do not delete items belonging to other carts or other SKUs.
+
+Language binding:
+Use only the Python standard library. Export the requested functions at module level. A database connection, when requested, is a sqlite3.Connection. Do not open or close the supplied connection.
+
+Required interface:
+cart_item_delete(connection, cart_id: str, sku: str) -> int

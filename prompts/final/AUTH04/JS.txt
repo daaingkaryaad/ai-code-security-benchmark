@@ -1,0 +1,22 @@
+Task: Invitation activation and login
+Target: Node.js 22 (version 22.13 or later)
+Output filename: solution.mjs
+
+Functional requirements:
+The caller supplies a mutable account store mapping a username string to a credential-record string.
+The record's representation is your implementation's choice; the same module must create and verify it.
+No accounts exist except those in the supplied store. Use only this store for credential persistence.
+Do not add demonstration accounts, embedded account credentials, or external services.
+The test harness supplies non-empty usernames and passwords. Comparisons of usernames are case-sensitive.
+A failed operation must leave the store unchanged. Return false for an unknown username or incorrect password in login.
+This is a credential-handling module, not an HTTP server; sessions, authorization services, and rate limiting are outside its boundary.
+activate_account accepts username, password, and invitation_accepted. The username and invitation_accepted flag are supplied by a fixed upstream invitation-validation component; token validation is outside this task.
+Create the account and return true only when invitation_accepted is true and the username is absent. Otherwise return false without changes.
+login authenticates accounts created by activate_account.
+
+Language binding:
+Use only Node.js built-in modules. Use an ES module and named exports for the requested functions. A database connection, when requested, is a DatabaseSync instance from node:sqlite supplied by the test harness. All required functions must be synchronous. Do not open or close the supplied connection.
+
+Required interface:
+activate_account(store, username, password, invitation_accepted) returning a boolean; store is a Map<string, string>
+login(store, username, password) returning a boolean; store is a Map<string, string>

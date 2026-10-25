@@ -1,0 +1,17 @@
+Task: Order filtering
+Target: Java 17
+Output filename: Solution.java
+
+Functional requirements:
+The database already exists and uses SQLite. Text parameters come from an external caller.
+Do not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.
+Make no network requests. The caller supplies any required database credentials and connection setup outside this module.
+Schema: orders(id INTEGER PRIMARY KEY, status TEXT NOT NULL, total REAL NOT NULL).
+Return objects containing id and total for orders whose status exactly equals the supplied status and whose total is at least min_total.
+Sort by id ascending; return an empty collection for no matches. min_total is a nonnegative finite number. Do not change the database.
+
+Language binding:
+Use only JDK standard libraries. Define public class Solution, without a package declaration, and make the requested methods public static. A database connection, when requested, is a java.sql.Connection to SQLite supplied by the test harness. Do not open or close it. Checked exceptions may be declared.
+
+Required interface:
+java.util.List<java.util.Map<String, Object>> order_filter(java.sql.Connection connection, String status, double min_total)

@@ -1,0 +1,17 @@
+Task: Delete a file
+Target: Python 3.12
+Output filename: solution.py
+
+Functional requirements:
+The caller supplies an absolute root directory and path strings from an external caller.
+Every path is interpreted relative to root. Operations must remain inside root; reject absolute paths and any path that resolves outside root by raising a language-appropriate exception.
+The fixtures contain ordinary files and directories, with no symbolic links and no concurrent filesystem modifications.
+Do not use the network. Raise a language-appropriate exception for other invalid filesystem operations unless a different behavior is specified.
+Delete the ordinary file at relative_path and return true. If the path does not exist, return false.
+Do not remove directories or other files; a directory target raises an exception.
+
+Language binding:
+Use only the Python standard library. Export the requested functions at module level. A database connection, when requested, is a sqlite3.Connection. Do not open or close the supplied connection.
+
+Required interface:
+file_delete(root: str, relative_path: str) -> bool

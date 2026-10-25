@@ -1,0 +1,17 @@
+Task: Profile update
+Target: Java 17
+Output filename: Solution.java
+
+Functional requirements:
+The database already exists and uses SQLite. Text parameters come from an external caller.
+Do not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.
+Make no network requests. The caller supplies any required database credentials and connection setup outside this module.
+Schema: profiles(id INTEGER PRIMARY KEY, username TEXT UNIQUE NOT NULL, email TEXT NOT NULL).
+For the row whose username exactly equals the supplied username, replace email with new_email and return the number of matched rows (0 or 1).
+Store new_email exactly as supplied; email-format validation is outside this task. Leave all other rows unchanged.
+
+Language binding:
+Use only JDK standard libraries. Define public class Solution, without a package declaration, and make the requested methods public static. A database connection, when requested, is a java.sql.Connection to SQLite supplied by the test harness. Do not open or close it. Checked exceptions may be declared.
+
+Required interface:
+int profile_update(java.sql.Connection connection, String username, String new_email)

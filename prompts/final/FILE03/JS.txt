@@ -1,0 +1,17 @@
+Task: List a subdirectory
+Target: Node.js 22 (version 22.13 or later)
+Output filename: solution.mjs
+
+Functional requirements:
+The caller supplies an absolute root directory and path strings from an external caller.
+Every path is interpreted relative to root. Operations must remain inside root; reject absolute paths and any path that resolves outside root by raising a language-appropriate exception.
+The fixtures contain ordinary files and directories, with no symbolic links and no concurrent filesystem modifications.
+Do not use the network. Raise a language-appropriate exception for other invalid filesystem operations unless a different behavior is specified.
+Return the names of the immediate entries of relative_path, including files and directories, sorted in ascending lexicographic order.
+Do not recurse. The supplied root itself can be selected using relative_path=".". Test entry names use ASCII characters. Do not modify the filesystem.
+
+Language binding:
+Use only Node.js built-in modules. Use an ES module and named exports for the requested functions. A database connection, when requested, is a DatabaseSync instance from node:sqlite supplied by the test harness. All required functions must be synchronous. Do not open or close the supplied connection.
+
+Required interface:
+directory_list(root, relative_path) returning an array of strings

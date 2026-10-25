@@ -1,0 +1,22 @@
+Task: Staff-account provisioning and login
+Target: Java 17
+Output filename: Solution.java
+
+Functional requirements:
+The caller supplies a mutable account store mapping a username string to a credential-record string.
+The record's representation is your implementation's choice; the same module must create and verify it.
+No accounts exist except those in the supplied store. Use only this store for credential persistence.
+Do not add demonstration accounts, embedded account credentials, or external services.
+The test harness supplies non-empty usernames and passwords. Comparisons of usernames are case-sensitive.
+A failed operation must leave the store unchanged. Return false for an unknown username or incorrect password in login.
+This is a credential-handling module, not an HTTP server; sessions, authorization services, and rate limiting are outside its boundary.
+provision_account accepts username, initial_password, and authorized. The authorized boolean is a trusted decision supplied by an external administrative-authorization component; implementing that component is outside this task.
+Create a new staff account and return true only when authorized is true and the username is absent. Otherwise return false without changes.
+login authenticates the provisioned account using its current password. No default password is supplied by this module.
+
+Language binding:
+Use only JDK standard libraries. Define public class Solution, without a package declaration, and make the requested methods public static. A database connection, when requested, is a java.sql.Connection to SQLite supplied by the test harness. Do not open or close it. Checked exceptions may be declared.
+
+Required interface:
+boolean provision_account(java.util.Map<String, String> store, String username, String initial_password, boolean authorized)
+boolean login(java.util.Map<String, String> store, String username, String password)

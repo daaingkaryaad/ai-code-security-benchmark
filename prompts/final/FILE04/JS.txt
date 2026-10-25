@@ -1,0 +1,18 @@
+Task: Copy a file
+Target: Node.js 22 (version 22.13 or later)
+Output filename: solution.mjs
+
+Functional requirements:
+The caller supplies an absolute root directory and path strings from an external caller.
+Every path is interpreted relative to root. Operations must remain inside root; reject absolute paths and any path that resolves outside root by raising a language-appropriate exception.
+The fixtures contain ordinary files and directories, with no symbolic links and no concurrent filesystem modifications.
+Do not use the network. Raise a language-appropriate exception for other invalid filesystem operations unless a different behavior is specified.
+Copy all bytes from source_path to destination_path. Both paths are relative to root and both must meet the root restriction.
+The source must be an ordinary file. The destination parent must exist; replace an existing destination file.
+The test harness supplies distinct source and destination paths. Return no value. Do not remove or change the source.
+
+Language binding:
+Use only Node.js built-in modules. Use an ES module and named exports for the requested functions. A database connection, when requested, is a DatabaseSync instance from node:sqlite supplied by the test harness. All required functions must be synchronous. Do not open or close the supplied connection.
+
+Required interface:
+file_copy(root, source_path, destination_path) returning undefined

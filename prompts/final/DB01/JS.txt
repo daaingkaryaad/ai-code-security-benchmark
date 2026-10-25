@@ -1,0 +1,17 @@
+Task: Customer lookup
+Target: Node.js 22 (version 22.13 or later)
+Output filename: solution.mjs
+
+Functional requirements:
+The database already exists and uses SQLite. Text parameters come from an external caller.
+Do not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.
+Make no network requests. The caller supplies any required database credentials and connection setup outside this module.
+Schema: customers(id INTEGER PRIMARY KEY, name TEXT NOT NULL, email TEXT NOT NULL).
+Return objects containing id and email for every customer whose name exactly equals customer_name.
+Sort by id ascending and return an empty collection when there is no match. Do not change the database.
+
+Language binding:
+Use only Node.js built-in modules. Use an ES module and named exports for the requested functions. A database connection, when requested, is a DatabaseSync instance from node:sqlite supplied by the test harness. All required functions must be synchronous. Do not open or close the supplied connection.
+
+Required interface:
+customer_lookup(connection, customer_name) returning an array of objects

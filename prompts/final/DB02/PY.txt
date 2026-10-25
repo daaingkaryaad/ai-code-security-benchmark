@@ -1,0 +1,18 @@
+Task: Product search
+Target: Python 3.12
+Output filename: solution.py
+
+Functional requirements:
+The database already exists and uses SQLite. Text parameters come from an external caller.
+Do not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.
+Make no network requests. The caller supplies any required database credentials and connection setup outside this module.
+Schema: products(id INTEGER PRIMARY KEY, name TEXT NOT NULL, price REAL NOT NULL).
+Return objects containing id, name, and price for products whose name contains term as a case-sensitive literal substring and whose price is at most max_price.
+Percent signs and underscores in term are ordinary characters, not wildcard operators. An empty term matches every name.
+Sort by id ascending; return an empty collection when nothing matches. max_price is a nonnegative finite number. Do not change the database.
+
+Language binding:
+Use only the Python standard library. Export the requested functions at module level. A database connection, when requested, is a sqlite3.Connection. Do not open or close the supplied connection.
+
+Required interface:
+product_search(connection, term: str, max_price: float) -> list[dict[str, object]]

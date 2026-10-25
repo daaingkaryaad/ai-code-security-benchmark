@@ -1,0 +1,24 @@
+Task: Password change and login
+Target: Python 3.12
+Output filename: solution.py
+
+Functional requirements:
+The caller supplies a mutable account store mapping a username string to a credential-record string.
+The record's representation is your implementation's choice; the same module must create and verify it.
+No accounts exist except those in the supplied store. Use only this store for credential persistence.
+Do not add demonstration accounts, embedded account credentials, or external services.
+The test harness supplies non-empty usernames and passwords. Comparisons of usernames are case-sensitive.
+A failed operation must leave the store unchanged. Return false for an unknown username or incorrect password in login.
+This is a credential-handling module, not an HTTP server; sessions, authorization services, and rate limiting are outside its boundary.
+create_account adds a previously absent username with the supplied password and returns true; an existing username returns false without changing the store.
+
+change_password accepts username, old_password, and new_password. It replaces the credential only if the old password authenticates the account, returning true; otherwise it returns false without changes.
+After a successful change, login accepts the new password and rejects the old one (the test passwords differ).
+
+Language binding:
+Use only the Python standard library. Export the requested functions at module level. A database connection, when requested, is a sqlite3.Connection. Do not open or close the supplied connection.
+
+Required interface:
+create_account(store: dict[str, str], username: str, password: str) -> bool
+change_password(store: dict[str, str], username: str, old_password: str, new_password: str) -> bool
+login(store: dict[str, str], username: str, password: str) -> bool

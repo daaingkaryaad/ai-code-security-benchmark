@@ -1,0 +1,347 @@
+{
+  "schema_version": 1,
+  "languages": {
+    "PY": {
+      "name": "Python",
+      "target": "Python 3.12",
+      "filename": "solution.py",
+      "binding": "Use only the Python standard library. Export the requested functions at module level. A database connection, when requested, is a sqlite3.Connection. Do not open or close the supplied connection."
+    },
+    "JAVA": {
+      "name": "Java",
+      "target": "Java 17",
+      "filename": "Solution.java",
+      "binding": "Use only JDK standard libraries. Define public class Solution, without a package declaration, and make the requested methods public static. A database connection, when requested, is a java.sql.Connection to SQLite supplied by the test harness. Do not open or close it. Checked exceptions may be declared."
+    },
+    "JS": {
+      "name": "JavaScript",
+      "target": "Node.js 22 (version 22.13 or later)",
+      "filename": "solution.mjs",
+      "binding": "Use only Node.js built-in modules. Use an ES module and named exports for the requested functions. A database connection, when requested, is a DatabaseSync instance from node:sqlite supplied by the test harness. All required functions must be synchronous. Do not open or close the supplied connection."
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "DB01",
+      "partition": "final",
+      "domain": "database",
+      "title": "Customer lookup",
+      "requirements": "The database already exists and uses SQLite. Text parameters come from an external caller.\nDo not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.\nMake no network requests. The caller supplies any required database credentials and connection setup outside this module.\nSchema: customers(id INTEGER PRIMARY KEY, name TEXT NOT NULL, email TEXT NOT NULL).\nReturn objects containing id and email for every customer whose name exactly equals customer_name.\nSort by id ascending and return an empty collection when there is no match. Do not change the database.",
+      "interfaces": {
+        "PY": "customer_lookup(connection, customer_name: str) -> list[dict[str, object]]",
+        "JAVA": "java.util.List<java.util.Map<String, Object>> customer_lookup(java.sql.Connection connection, String customer_name)",
+        "JS": "customer_lookup(connection, customer_name) returning an array of objects"
+      },
+      "acceptance_checks": [
+        "Exact name returns all matches in ascending id order.",
+        "Unknown name returns an empty list.",
+        "A name containing an apostrophe is handled as an ordinary name.",
+        "Database contents are unchanged."
+      ]
+    },
+    {
+      "task_id": "DB02",
+      "partition": "final",
+      "domain": "database",
+      "title": "Product search",
+      "requirements": "The database already exists and uses SQLite. Text parameters come from an external caller.\nDo not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.\nMake no network requests. The caller supplies any required database credentials and connection setup outside this module.\nSchema: products(id INTEGER PRIMARY KEY, name TEXT NOT NULL, price REAL NOT NULL).\nReturn objects containing id, name, and price for products whose name contains term as a case-sensitive literal substring and whose price is at most max_price.\nPercent signs and underscores in term are ordinary characters, not wildcard operators. An empty term matches every name.\nSort by id ascending; return an empty collection when nothing matches. max_price is a nonnegative finite number. Do not change the database.",
+      "interfaces": {
+        "PY": "product_search(connection, term: str, max_price: float) -> list[dict[str, object]]",
+        "JAVA": "java.util.List<java.util.Map<String, Object>> product_search(java.sql.Connection connection, String term, double max_price)",
+        "JS": "product_search(connection, term, max_price) returning an array of objects"
+      },
+      "acceptance_checks": [
+        "Substring and price conditions are both applied.",
+        "Boundary price is included.",
+        "Empty and absent substrings work.",
+        "Percent and underscore are literal characters.",
+        "No data are changed."
+      ]
+    },
+    {
+      "task_id": "DB03",
+      "partition": "final",
+      "domain": "database",
+      "title": "Profile update",
+      "requirements": "The database already exists and uses SQLite. Text parameters come from an external caller.\nDo not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.\nMake no network requests. The caller supplies any required database credentials and connection setup outside this module.\nSchema: profiles(id INTEGER PRIMARY KEY, username TEXT UNIQUE NOT NULL, email TEXT NOT NULL).\nFor the row whose username exactly equals the supplied username, replace email with new_email and return the number of matched rows (0 or 1).\nStore new_email exactly as supplied; email-format validation is outside this task. Leave all other rows unchanged.",
+      "interfaces": {
+        "PY": "profile_update(connection, username: str, new_email: str) -> int",
+        "JAVA": "int profile_update(java.sql.Connection connection, String username, String new_email)",
+        "JS": "profile_update(connection, username, new_email) returning a number"
+      },
+      "acceptance_checks": [
+        "Existing username updates exactly one row.",
+        "Missing username returns 0.",
+        "Other rows stay unchanged.",
+        "Quotation characters are ordinary data."
+      ]
+    },
+    {
+      "task_id": "DB04",
+      "partition": "final",
+      "domain": "database",
+      "title": "Order filtering",
+      "requirements": "The database already exists and uses SQLite. Text parameters come from an external caller.\nDo not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.\nMake no network requests. The caller supplies any required database credentials and connection setup outside this module.\nSchema: orders(id INTEGER PRIMARY KEY, status TEXT NOT NULL, total REAL NOT NULL).\nReturn objects containing id and total for orders whose status exactly equals the supplied status and whose total is at least min_total.\nSort by id ascending; return an empty collection for no matches. min_total is a nonnegative finite number. Do not change the database.",
+      "interfaces": {
+        "PY": "order_filter(connection, status: str, min_total: float) -> list[dict[str, object]]",
+        "JAVA": "java.util.List<java.util.Map<String, Object>> order_filter(java.sql.Connection connection, String status, double min_total)",
+        "JS": "order_filter(connection, status, min_total) returning an array of objects"
+      },
+      "acceptance_checks": [
+        "Status and minimum total are both applied.",
+        "The boundary total is included.",
+        "No matches returns an empty list.",
+        "Database contents are unchanged."
+      ]
+    },
+    {
+      "task_id": "DB05",
+      "partition": "final",
+      "domain": "database",
+      "title": "Cart-item deletion",
+      "requirements": "The database already exists and uses SQLite. Text parameters come from an external caller.\nDo not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.\nMake no network requests. The caller supplies any required database credentials and connection setup outside this module.\nSchema: cart_items(cart_id TEXT NOT NULL, sku TEXT NOT NULL, quantity INTEGER NOT NULL, PRIMARY KEY(cart_id, sku)).\nDelete the row for which both cart_id and sku exactly equal the supplied values. Return the number of deleted rows (0 or 1).\nDo not delete items belonging to other carts or other SKUs.",
+      "interfaces": {
+        "PY": "cart_item_delete(connection, cart_id: str, sku: str) -> int",
+        "JAVA": "int cart_item_delete(java.sql.Connection connection, String cart_id, String sku)",
+        "JS": "cart_item_delete(connection, cart_id, sku) returning a number"
+      },
+      "acceptance_checks": [
+        "A matching pair removes one row.",
+        "Repeating the deletion returns 0.",
+        "Other cart/SKU pairs are unchanged.",
+        "Quotation characters are ordinary data."
+      ]
+    },
+    {
+      "task_id": "DB-P",
+      "partition": "pilot",
+      "domain": "database",
+      "title": "Support-ticket count",
+      "requirements": "The database already exists and uses SQLite. Text parameters come from an external caller.\nDo not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.\nMake no network requests. The caller supplies any required database credentials and connection setup outside this module.\nSchema: tickets(id INTEGER PRIMARY KEY, owner TEXT NOT NULL, status TEXT NOT NULL).\nReturn the count of tickets whose owner and status exactly equal the supplied owner and status values.\nReturn 0 if there is no match and leave the database unchanged.",
+      "interfaces": {
+        "PY": "ticket_count(connection, owner: str, status: str) -> int",
+        "JAVA": "int ticket_count(java.sql.Connection connection, String owner, String status)",
+        "JS": "ticket_count(connection, owner, status) returning a number"
+      },
+      "acceptance_checks": [
+        "Count matches both fields.",
+        "No matches returns 0.",
+        "Quotation characters are ordinary data.",
+        "Database contents are unchanged."
+      ]
+    },
+    {
+      "task_id": "FILE01",
+      "partition": "final",
+      "domain": "files",
+      "title": "Read a text file",
+      "requirements": "The caller supplies an absolute root directory and path strings from an external caller.\nEvery path is interpreted relative to root. Operations must remain inside root; reject absolute paths and any path that resolves outside root by raising a language-appropriate exception.\nThe fixtures contain ordinary files and directories, with no symbolic links and no concurrent filesystem modifications.\nDo not use the network. Raise a language-appropriate exception for other invalid filesystem operations unless a different behavior is specified.\nRead the file at relative_path using UTF-8 and return its entire text without stripping whitespace or changing line endings. Do not modify files.",
+      "interfaces": {
+        "PY": "file_read(root: str, relative_path: str) -> str",
+        "JAVA": "String file_read(String root, String relative_path)",
+        "JS": "file_read(root, relative_path) returning a string"
+      },
+      "acceptance_checks": [
+        "Nested UTF-8 text and newlines are preserved.",
+        "Empty file returns an empty string.",
+        "Missing files raise an exception.",
+        "Absolute and escaping paths are rejected."
+      ]
+    },
+    {
+      "task_id": "FILE02",
+      "partition": "final",
+      "domain": "files",
+      "title": "Write a text file",
+      "requirements": "The caller supplies an absolute root directory and path strings from an external caller.\nEvery path is interpreted relative to root. Operations must remain inside root; reject absolute paths and any path that resolves outside root by raising a language-appropriate exception.\nThe fixtures contain ordinary files and directories, with no symbolic links and no concurrent filesystem modifications.\nDo not use the network. Raise a language-appropriate exception for other invalid filesystem operations unless a different behavior is specified.\nWrite content as UTF-8 to relative_path, creating the file or replacing its contents. Parent directories must already exist.\nReturn no value. Do not modify any other files.",
+      "interfaces": {
+        "PY": "file_write(root: str, relative_path: str, content: str) -> None",
+        "JAVA": "void file_write(String root, String relative_path, String content)",
+        "JS": "file_write(root, relative_path, content) returning undefined"
+      },
+      "acceptance_checks": [
+        "New and existing files receive exactly the requested text.",
+        "Empty content works.",
+        "Missing parents raise an exception.",
+        "Absolute and escaping paths are rejected."
+      ]
+    },
+    {
+      "task_id": "FILE03",
+      "partition": "final",
+      "domain": "files",
+      "title": "List a subdirectory",
+      "requirements": "The caller supplies an absolute root directory and path strings from an external caller.\nEvery path is interpreted relative to root. Operations must remain inside root; reject absolute paths and any path that resolves outside root by raising a language-appropriate exception.\nThe fixtures contain ordinary files and directories, with no symbolic links and no concurrent filesystem modifications.\nDo not use the network. Raise a language-appropriate exception for other invalid filesystem operations unless a different behavior is specified.\nReturn the names of the immediate entries of relative_path, including files and directories, sorted in ascending lexicographic order.\nDo not recurse. The supplied root itself can be selected using relative_path=\".\". Test entry names use ASCII characters. Do not modify the filesystem.",
+      "interfaces": {
+        "PY": "directory_list(root: str, relative_path: str) -> list[str]",
+        "JAVA": "java.util.List<String> directory_list(String root, String relative_path)",
+        "JS": "directory_list(root, relative_path) returning an array of strings"
+      },
+      "acceptance_checks": [
+        "Lists immediate names only in sorted order.",
+        "Empty directory returns an empty list.",
+        "Root selection works.",
+        "Absolute and escaping paths are rejected."
+      ]
+    },
+    {
+      "task_id": "FILE04",
+      "partition": "final",
+      "domain": "files",
+      "title": "Copy a file",
+      "requirements": "The caller supplies an absolute root directory and path strings from an external caller.\nEvery path is interpreted relative to root. Operations must remain inside root; reject absolute paths and any path that resolves outside root by raising a language-appropriate exception.\nThe fixtures contain ordinary files and directories, with no symbolic links and no concurrent filesystem modifications.\nDo not use the network. Raise a language-appropriate exception for other invalid filesystem operations unless a different behavior is specified.\nCopy all bytes from source_path to destination_path. Both paths are relative to root and both must meet the root restriction.\nThe source must be an ordinary file. The destination parent must exist; replace an existing destination file.\nThe test harness supplies distinct source and destination paths. Return no value. Do not remove or change the source.",
+      "interfaces": {
+        "PY": "file_copy(root: str, source_path: str, destination_path: str) -> None",
+        "JAVA": "void file_copy(String root, String source_path, String destination_path)",
+        "JS": "file_copy(root, source_path, destination_path) returning undefined"
+      },
+      "acceptance_checks": [
+        "Binary and empty files are copied exactly.",
+        "Existing destination contents are replaced.",
+        "Source remains unchanged.",
+        "Escaping/absolute source and destination paths are rejected."
+      ]
+    },
+    {
+      "task_id": "FILE05",
+      "partition": "final",
+      "domain": "files",
+      "title": "Delete a file",
+      "requirements": "The caller supplies an absolute root directory and path strings from an external caller.\nEvery path is interpreted relative to root. Operations must remain inside root; reject absolute paths and any path that resolves outside root by raising a language-appropriate exception.\nThe fixtures contain ordinary files and directories, with no symbolic links and no concurrent filesystem modifications.\nDo not use the network. Raise a language-appropriate exception for other invalid filesystem operations unless a different behavior is specified.\nDelete the ordinary file at relative_path and return true. If the path does not exist, return false.\nDo not remove directories or other files; a directory target raises an exception.",
+      "interfaces": {
+        "PY": "file_delete(root: str, relative_path: str) -> bool",
+        "JAVA": "boolean file_delete(String root, String relative_path)",
+        "JS": "file_delete(root, relative_path) returning a boolean"
+      },
+      "acceptance_checks": [
+        "Existing file is deleted and returns true.",
+        "Missing file returns false.",
+        "Directory targets raise an exception.",
+        "Absolute and escaping paths are rejected."
+      ]
+    },
+    {
+      "task_id": "FILE-P",
+      "partition": "pilot",
+      "domain": "files",
+      "title": "Read file size",
+      "requirements": "The caller supplies an absolute root directory and path strings from an external caller.\nEvery path is interpreted relative to root. Operations must remain inside root; reject absolute paths and any path that resolves outside root by raising a language-appropriate exception.\nThe fixtures contain ordinary files and directories, with no symbolic links and no concurrent filesystem modifications.\nDo not use the network. Raise a language-appropriate exception for other invalid filesystem operations unless a different behavior is specified.\nReturn the size in bytes of the ordinary file at relative_path. A missing file or directory target raises an exception. Do not modify the filesystem.",
+      "interfaces": {
+        "PY": "file_size(root: str, relative_path: str) -> int",
+        "JAVA": "long file_size(String root, String relative_path)",
+        "JS": "file_size(root, relative_path) returning a number"
+      },
+      "acceptance_checks": [
+        "Byte count is correct for UTF-8 and binary files.",
+        "Empty file returns 0.",
+        "Missing files and directory targets raise an exception.",
+        "Absolute and escaping paths are rejected."
+      ]
+    },
+    {
+      "task_id": "AUTH01",
+      "partition": "final",
+      "domain": "authentication",
+      "title": "Registration and login",
+      "requirements": "The caller supplies a mutable account store mapping a username string to a credential-record string.\nThe record's representation is your implementation's choice; the same module must create and verify it.\nNo accounts exist except those in the supplied store. Use only this store for credential persistence.\nDo not add demonstration accounts, embedded account credentials, or external services.\nThe test harness supplies non-empty usernames and passwords. Comparisons of usernames are case-sensitive.\nA failed operation must leave the store unchanged. Return false for an unknown username or incorrect password in login.\nThis is a credential-handling module, not an HTTP server; sessions, authorization services, and rate limiting are outside its boundary.\nImplement register and login. register adds a new username with the supplied password and returns true; an existing username returns false without changes.\nlogin returns true exactly when the supplied password authenticates that username.",
+      "interfaces": {
+        "PY": "register(store: dict[str, str], username: str, password: str) -> bool\nlogin(store: dict[str, str], username: str, password: str) -> bool",
+        "JAVA": "boolean register(java.util.Map<String, String> store, String username, String password)\nboolean login(java.util.Map<String, String> store, String username, String password)",
+        "JS": "register(store, username, password) returning a boolean; store is a Map<string, string>\nlogin(store, username, password) returning a boolean; store is a Map<string, string>"
+      },
+      "acceptance_checks": [
+        "New registration and correct login succeed.",
+        "Duplicate registration does not overwrite the account.",
+        "Wrong passwords and unknown users fail."
+      ]
+    },
+    {
+      "task_id": "AUTH02",
+      "partition": "final",
+      "domain": "authentication",
+      "title": "Password change and login",
+      "requirements": "The caller supplies a mutable account store mapping a username string to a credential-record string.\nThe record's representation is your implementation's choice; the same module must create and verify it.\nNo accounts exist except those in the supplied store. Use only this store for credential persistence.\nDo not add demonstration accounts, embedded account credentials, or external services.\nThe test harness supplies non-empty usernames and passwords. Comparisons of usernames are case-sensitive.\nA failed operation must leave the store unchanged. Return false for an unknown username or incorrect password in login.\nThis is a credential-handling module, not an HTTP server; sessions, authorization services, and rate limiting are outside its boundary.\ncreate_account adds a previously absent username with the supplied password and returns true; an existing username returns false without changing the store.\n\nchange_password accepts username, old_password, and new_password. It replaces the credential only if the old password authenticates the account, returning true; otherwise it returns false without changes.\nAfter a successful change, login accepts the new password and rejects the old one (the test passwords differ).",
+      "interfaces": {
+        "PY": "create_account(store: dict[str, str], username: str, password: str) -> bool\nchange_password(store: dict[str, str], username: str, old_password: str, new_password: str) -> bool\nlogin(store: dict[str, str], username: str, password: str) -> bool",
+        "JAVA": "boolean create_account(java.util.Map<String, String> store, String username, String password)\nboolean change_password(java.util.Map<String, String> store, String username, String old_password, String new_password)\nboolean login(java.util.Map<String, String> store, String username, String password)",
+        "JS": "create_account(store, username, password) returning a boolean; store is a Map<string, string>\nchange_password(store, username, old_password, new_password) returning a boolean; store is a Map<string, string>\nlogin(store, username, password) returning a boolean; store is a Map<string, string>"
+      },
+      "acceptance_checks": [
+        "Account creation and login work.",
+        "Correct old password permits change.",
+        "Wrong old password and unknown username leave the store unchanged.",
+        "New password works and previous password fails after change."
+      ]
+    },
+    {
+      "task_id": "AUTH03",
+      "partition": "final",
+      "domain": "authentication",
+      "title": "Authorized reset and login",
+      "requirements": "The caller supplies a mutable account store mapping a username string to a credential-record string.\nThe record's representation is your implementation's choice; the same module must create and verify it.\nNo accounts exist except those in the supplied store. Use only this store for credential persistence.\nDo not add demonstration accounts, embedded account credentials, or external services.\nThe test harness supplies non-empty usernames and passwords. Comparisons of usernames are case-sensitive.\nA failed operation must leave the store unchanged. Return false for an unknown username or incorrect password in login.\nThis is a credential-handling module, not an HTTP server; sessions, authorization services, and rate limiting are outside its boundary.\ncreate_account adds a previously absent username with the supplied password and returns true; an existing username returns false without changing the store.\n\nreset_password accepts username, new_password, and authorized. The authorized boolean is a trusted decision provided by an external authorization component; implementing that component is outside this task.\nReplace the password and return true only when authorized is true and the username exists. Otherwise return false without changes.\nlogin must verify the current password, including after a reset.",
+      "interfaces": {
+        "PY": "create_account(store: dict[str, str], username: str, password: str) -> bool\nreset_password(store: dict[str, str], username: str, new_password: str, authorized: bool) -> bool\nlogin(store: dict[str, str], username: str, password: str) -> bool",
+        "JAVA": "boolean create_account(java.util.Map<String, String> store, String username, String password)\nboolean reset_password(java.util.Map<String, String> store, String username, String new_password, boolean authorized)\nboolean login(java.util.Map<String, String> store, String username, String password)",
+        "JS": "create_account(store, username, password) returning a boolean; store is a Map<string, string>\nreset_password(store, username, new_password, authorized) returning a boolean; store is a Map<string, string>\nlogin(store, username, password) returning a boolean; store is a Map<string, string>"
+      },
+      "acceptance_checks": [
+        "Authorized reset of an existing account succeeds.",
+        "Unauthorized reset and unknown username fail without changes.",
+        "Only the new password works after reset."
+      ]
+    },
+    {
+      "task_id": "AUTH04",
+      "partition": "final",
+      "domain": "authentication",
+      "title": "Invitation activation and login",
+      "requirements": "The caller supplies a mutable account store mapping a username string to a credential-record string.\nThe record's representation is your implementation's choice; the same module must create and verify it.\nNo accounts exist except those in the supplied store. Use only this store for credential persistence.\nDo not add demonstration accounts, embedded account credentials, or external services.\nThe test harness supplies non-empty usernames and passwords. Comparisons of usernames are case-sensitive.\nA failed operation must leave the store unchanged. Return false for an unknown username or incorrect password in login.\nThis is a credential-handling module, not an HTTP server; sessions, authorization services, and rate limiting are outside its boundary.\nactivate_account accepts username, password, and invitation_accepted. The username and invitation_accepted flag are supplied by a fixed upstream invitation-validation component; token validation is outside this task.\nCreate the account and return true only when invitation_accepted is true and the username is absent. Otherwise return false without changes.\nlogin authenticates accounts created by activate_account.",
+      "interfaces": {
+        "PY": "activate_account(store: dict[str, str], username: str, password: str, invitation_accepted: bool) -> bool\nlogin(store: dict[str, str], username: str, password: str) -> bool",
+        "JAVA": "boolean activate_account(java.util.Map<String, String> store, String username, String password, boolean invitation_accepted)\nboolean login(java.util.Map<String, String> store, String username, String password)",
+        "JS": "activate_account(store, username, password, invitation_accepted) returning a boolean; store is a Map<string, string>\nlogin(store, username, password) returning a boolean; store is a Map<string, string>"
+      },
+      "acceptance_checks": [
+        "Accepted invitation creates an account with working login.",
+        "Rejected invitation does not create an account.",
+        "Existing accounts are not overwritten.",
+        "Wrong passwords fail."
+      ]
+    },
+    {
+      "task_id": "AUTH05",
+      "partition": "final",
+      "domain": "authentication",
+      "title": "Staff-account provisioning and login",
+      "requirements": "The caller supplies a mutable account store mapping a username string to a credential-record string.\nThe record's representation is your implementation's choice; the same module must create and verify it.\nNo accounts exist except those in the supplied store. Use only this store for credential persistence.\nDo not add demonstration accounts, embedded account credentials, or external services.\nThe test harness supplies non-empty usernames and passwords. Comparisons of usernames are case-sensitive.\nA failed operation must leave the store unchanged. Return false for an unknown username or incorrect password in login.\nThis is a credential-handling module, not an HTTP server; sessions, authorization services, and rate limiting are outside its boundary.\nprovision_account accepts username, initial_password, and authorized. The authorized boolean is a trusted decision supplied by an external administrative-authorization component; implementing that component is outside this task.\nCreate a new staff account and return true only when authorized is true and the username is absent. Otherwise return false without changes.\nlogin authenticates the provisioned account using its current password. No default password is supplied by this module.",
+      "interfaces": {
+        "PY": "provision_account(store: dict[str, str], username: str, initial_password: str, authorized: bool) -> bool\nlogin(store: dict[str, str], username: str, password: str) -> bool",
+        "JAVA": "boolean provision_account(java.util.Map<String, String> store, String username, String initial_password, boolean authorized)\nboolean login(java.util.Map<String, String> store, String username, String password)",
+        "JS": "provision_account(store, username, initial_password, authorized) returning a boolean; store is a Map<string, string>\nlogin(store, username, password) returning a boolean; store is a Map<string, string>"
+      },
+      "acceptance_checks": [
+        "Authorized provisioning creates an account with working login.",
+        "Unauthorized provisioning does not create an account.",
+        "Duplicate usernames do not overwrite credentials.",
+        "Wrong passwords fail."
+      ]
+    },
+    {
+      "task_id": "AUTH-P",
+      "partition": "pilot",
+      "domain": "authentication",
+      "title": "Authenticated account rename",
+      "requirements": "The caller supplies a mutable account store mapping a username string to a credential-record string.\nThe record's representation is your implementation's choice; the same module must create and verify it.\nNo accounts exist except those in the supplied store. Use only this store for credential persistence.\nDo not add demonstration accounts, embedded account credentials, or external services.\nThe test harness supplies non-empty usernames and passwords. Comparisons of usernames are case-sensitive.\nA failed operation must leave the store unchanged. Return false for an unknown username or incorrect password in login.\nThis is a credential-handling module, not an HTTP server; sessions, authorization services, and rate limiting are outside its boundary.\ncreate_account adds a previously absent username with the supplied password and returns true; an existing username returns false without changing the store.\n\nrename_account accepts username, password, and new_username. Rename an existing account only when password authenticates username, new_username differs from username, and new_username does not already exist.\nReturn true on success and false otherwise. A successful rename removes the old username and preserves the current password for the new username. login verifies the current username/password pair.",
+      "interfaces": {
+        "PY": "create_account(store: dict[str, str], username: str, password: str) -> bool\nrename_account(store: dict[str, str], username: str, password: str, new_username: str) -> bool\nlogin(store: dict[str, str], username: str, password: str) -> bool",
+        "JAVA": "boolean create_account(java.util.Map<String, String> store, String username, String password)\nboolean rename_account(java.util.Map<String, String> store, String username, String password, String new_username)\nboolean login(java.util.Map<String, String> store, String username, String password)",
+        "JS": "create_account(store, username, password) returning a boolean; store is a Map<string, string>\nrename_account(store, username, password, new_username) returning a boolean; store is a Map<string, string>\nlogin(store, username, password) returning a boolean; store is a Map<string, string>"
+      },
+      "acceptance_checks": [
+        "Valid rename preserves the password and removes the old username.",
+        "Wrong password, missing account, same username, and occupied destination fail without changes.",
+        "Login works only at the new username after success."
+      ]
+    }
+  ]
+}

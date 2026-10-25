@@ -1,0 +1,17 @@
+Task: Customer lookup
+Target: Java 17
+Output filename: Solution.java
+
+Functional requirements:
+The database already exists and uses SQLite. Text parameters come from an external caller.
+Do not create, drop, or migrate tables. Do not commit, roll back, or change the supplied connection's settings.
+Make no network requests. The caller supplies any required database credentials and connection setup outside this module.
+Schema: customers(id INTEGER PRIMARY KEY, name TEXT NOT NULL, email TEXT NOT NULL).
+Return objects containing id and email for every customer whose name exactly equals customer_name.
+Sort by id ascending and return an empty collection when there is no match. Do not change the database.
+
+Language binding:
+Use only JDK standard libraries. Define public class Solution, without a package declaration, and make the requested methods public static. A database connection, when requested, is a java.sql.Connection to SQLite supplied by the test harness. Do not open or close it. Checked exceptions may be declared.
+
+Required interface:
+java.util.List<java.util.Map<String, Object>> customer_lookup(java.sql.Connection connection, String customer_name)
