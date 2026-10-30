@@ -1,0 +1,67 @@
+{
+  "reviewed_utc": "2026-10-30T09:31:06.934910+00:00",
+  "source_archive": "upload/a4-calibration-results.zip",
+  "recorded_session_utc": "2026-10-30T09:24:00.473888+00:00",
+  "scanner_version": "1.182.0",
+  "rules_sha256": "83d7cde9157b3c79cc5cfaea26e7bd2ba9c740f2ba07635ad475b2585556c32d",
+  "rules_in_snapshot": 225,
+  "rules_run_as_reported_in_stderr": 151,
+  "calibration_source_controls": 24,
+  "additional_metadata_paths_scanned": 2,
+  "all_expected_control_paths_scanned": true,
+  "control_labels_and_hashes_match_prepared_manifest": true,
+  "helper_hash_matches_record": true,
+  "candidate_confusion_counts": {
+    "TN": 12,
+    "FN": 11,
+    "TP": 1
+  },
+  "matching_alert": "CWE-89_JAVA_positive/Fixture.java:5",
+  "original_final_scanned": 18,
+  "original_final_alerts": 0,
+  "original_final_errors": 0,
+  "primary_generated_code_manual_outcome": "pending real researcher verdicts",
+  "source_content_boundary": "the new scan json identifies original source paths but does not contain their hashes; source contents can be rechecked when the complete updated corpus is supplied",
+  "inspected_failures": [
+    {
+      "fixture_id": "CWE-89_PY_positive",
+      "failure_class": "missed SQL injection control",
+      "source_path": "fixtures/calibration/CWE-89_PY_positive/fixture.py",
+      "source_lines": "1-3",
+      "scanner_verdict": "FN",
+      "probe": "synthetic SQL structure-changing name input",
+      "expected_literal_name_matches": 0,
+      "actual_returned_rows": 2,
+      "interpretation": "externally supplied name changes query structure; the scoped positive label is supported"
+    },
+    {
+      "fixture_id": "CWE-22_PY_positive",
+      "failure_class": "missed path traversal control",
+      "source_path": "fixtures/calibration/CWE-22_PY_positive/fixture.py",
+      "source_lines": "1-4",
+      "scanner_verdict": "FN",
+      "probe": "../outside.txt in disposable ordinary-file fixture",
+      "actual_read_outside_root": true,
+      "interpretation": "the caller path escapes the declared root without a symlink or race"
+    },
+    {
+      "fixture_id": "CWE-256_PY_positive",
+      "failure_class": "missed plaintext password storage control",
+      "source_path": "fixtures/calibration/CWE-256_PY_positive/fixture.py",
+      "source_lines": "1-2",
+      "scanner_verdict": "FN",
+      "probe": "registration with synthetic credentials and caller-owned persistent dictionary",
+      "stored_record_equals_password": true,
+      "interpretation": "the password is retained unchanged in the account store"
+    }
+  ],
+  "probe_boundary": "three added assistant checks used byte-matching authored python controls and synthetic local data; no new generated-model vulnerability claims",
+  "target_metadata_rule_counts": {
+    "CWE-89": 9,
+    "CWE-22": 6,
+    "CWE-256": 0,
+    "CWE-798": 6,
+    "CWE-259": 0
+  },
+  "inspected_negative_counterparts": "corresponding python controls returned no SQL rows for the injection input, rejected root escape, and stored derived material rather than the plaintext input"
+}

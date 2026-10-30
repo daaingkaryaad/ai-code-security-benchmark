@@ -1,0 +1,202 @@
+{
+  "assessment_recorded_utc": "2026-10-30T10:48:02+00:00",
+  "assessment_author": "assistant source-code inspection",
+  "generated_final_programs": 45,
+  "original_final": 18,
+  "extension_final": 27,
+  "pilot_programs_excluded": 9,
+  "distinct_final_tasks": 15,
+  "generation_repetitions_per_task_language_pair": 1,
+  "languages": {
+    "java": 15,
+    "javascript": 15,
+    "python": 15
+  },
+  "domains": {
+    "files": 15,
+    "database": 15,
+    "authentication": 15
+  },
+  "decision_counts": {
+    "n/a": 120,
+    "0": 60
+  },
+  "any_target_technical_positive": 0,
+  "any_target_technical_denominator": 45,
+  "by_cwe": {
+    "CWE-89": {
+      "applicable": 15,
+      "positive": 0,
+      "not_identified": 15
+    },
+    "CWE-22": {
+      "applicable": 15,
+      "positive": 0,
+      "not_identified": 15
+    },
+    "CWE-256": {
+      "applicable": 15,
+      "positive": 0,
+      "not_identified": 15
+    },
+    "CWE-798": {
+      "applicable": 15,
+      "positive": 0,
+      "not_identified": 15
+    }
+  },
+  "human_independent_review": "not supplied; neither researcher nor consensus decisions fabricated",
+  "latest_45_file_scan_raw_records": "verified from upload/a4-latest-scan.zip; all expected source paths scanned",
+  "calibration": {
+    "positive_controls": 12,
+    "negative_controls": 12,
+    "TP": 1,
+    "FN": 11,
+    "TN": 12,
+    "FP": 0,
+    "sole_alert": "CWE-89_JAVA_positive/Fixture.java:5",
+    "scanned_source_controls": 24,
+    "metadata_paths_also_listed": 2
+  },
+  "reported_rates_scope": "assistant source-assessment proportions; not independently human-confirmed population prevalence",
+  "source_path": "upload/ai-code-security-benchmark(1).zip",
+  "source_archive_sha256": "242fd23ec83ef082e04ef9e029994788fb18afb76d80f1b63be8e2755092f91f",
+  "combined_scan": {
+    "recorded_utc": "2026-10-30T10:36:00.927206+00:00",
+    "config": "data/processed/a4-calibration-20261030T092400473888Z/resolved_rules.yaml",
+    "instrument_version": "1.1.0",
+    "instrument_sha256": "04f17434b4282ec4cdce3d97d00168ec63d05dd5d6235180dd59b4953627fc21",
+    "config_is_frozen": true,
+    "semgrep_executable": "/opt/homebrew/bin/semgrep",
+    "historical_semgrep_version": "1.182.0",
+    "runs": [
+      {
+        "label": "calibration",
+        "command": [
+          "/opt/homebrew/bin/semgrep",
+          "scan",
+          "--config=/Users/ingkarpahr/Desktop/ai-code-security-benchmark/data/processed/a4-calibration-20261030T103600927206Z/resolved_rules.yaml",
+          "--metrics=off",
+          "--json",
+          "--no-git-ignore",
+          "--output=/Users/ingkarpahr/Desktop/ai-code-security-benchmark/data/processed/a4-calibration-20261030T103600927206Z/calibration_semgrep.json",
+          "fixtures/calibration"
+        ],
+        "returncode": 0,
+        "alerts": 1,
+        "errors": 0,
+        "scanned_paths": 26,
+        "version": "1.182.0",
+        "all_expected_paths_scanned": true,
+        "missing_paths": []
+      },
+      {
+        "label": "final_r1",
+        "command": [
+          "/opt/homebrew/bin/semgrep",
+          "scan",
+          "--config=/Users/ingkarpahr/Desktop/ai-code-security-benchmark/data/processed/a4-calibration-20261030T103600927206Z/resolved_rules.yaml",
+          "--metrics=off",
+          "--json",
+          "--no-git-ignore",
+          "--output=/Users/ingkarpahr/Desktop/ai-code-security-benchmark/data/processed/a4-calibration-20261030T103600927206Z/final_r1_semgrep.json",
+          "data/source/final-web-v1"
+        ],
+        "returncode": 0,
+        "alerts": 0,
+        "errors": 0,
+        "scanned_paths": 18,
+        "version": "1.182.0",
+        "all_expected_paths_scanned": true,
+        "missing_paths": []
+      },
+      {
+        "label": "extension",
+        "command": [
+          "/opt/homebrew/bin/semgrep",
+          "scan",
+          "--config=/Users/ingkarpahr/Desktop/ai-code-security-benchmark/data/processed/a4-calibration-20261030T103600927206Z/resolved_rules.yaml",
+          "--metrics=off",
+          "--json",
+          "--no-git-ignore",
+          "--output=/Users/ingkarpahr/Desktop/ai-code-security-benchmark/data/processed/a4-calibration-20261030T103600927206Z/extension_semgrep.json",
+          "data/source/final-web-extension-v1"
+        ],
+        "returncode": 0,
+        "alerts": 0,
+        "errors": 0,
+        "scanned_paths": 27,
+        "version": "1.182.0",
+        "all_expected_paths_scanned": true,
+        "missing_paths": []
+      }
+    ],
+    "config_sha256": "83d7cde9157b3c79cc5cfaea26e7bd2ba9c740f2ba07635ad475b2585556c32d",
+    "version_stdout": "1.182.0",
+    "version_stderr": "A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading",
+    "status": "complete scan session"
+  },
+  "automated_alert_positive_programs": 0,
+  "automated_alert_denominator": 45,
+  "automated_alert_rate_percent": 0,
+  "rules_snapshot_count": 225,
+  "rules_reported_run": 151,
+  "positive_control_detection_fraction": {
+    "numerator": 1,
+    "denominator": 12,
+    "percent_rounded_1dp": 8.3
+  },
+  "negative_control_nonalert_fraction": {
+    "numerator": 12,
+    "denominator": 12,
+    "percent": 100
+  },
+  "minimum_cell_resolution_percentage_points": 20,
+  "minimum_language_resolution_percentage_points_rounded_1dp": 6.7,
+  "observed_language_alert_rate_difference_percentage_points": 0,
+  "source_total_physical_lines": 1639,
+  "source_total_bytes": 48413,
+  "environment_provenance": {
+    "team_hardware_reported_in_a3": "apple m4 mac; 16 gb ram",
+    "team_original_python_reported_in_a3": "3.9.6",
+    "scanner_verified_from_combined_scan": "1.182.0",
+    "supplementary_execution_environment": "linux x86_64; python 3.12.14; node 24.22.1",
+    "prompt_targets": "python 3.12; java 17; node 22.13 or later",
+    "boundary": "prompt targets and reported local environment are not interchangeable; supplementary java compilation not executed"
+  },
+  "collection_save_windows_utc": {
+    "original_all_save_events": [
+      "2026-10-25T11:12:02+00:00",
+      "2026-10-25T11:34:25+00:00"
+    ],
+    "extension_source_save_events": [
+      "2026-10-30T09:36:23+00:00",
+      "2026-10-30T10:27:56+00:00"
+    ],
+    "extension_session_initialized": "2026-10-30T09:35:30+00:00"
+  },
+  "team_row_log": {
+    "csv": "assessment/a4_review_consensus.csv",
+    "rows_with_name_and_date": 180,
+    "date_supplied_by_team": "2026-10-31",
+    "original_user_entered_names": 94,
+    "assistant_continued_names_at_team_direction": 86,
+    "scope": "records names and dates for the shared technical assessment; not evidence of two independent reviews",
+    "format": "one combined csv log"
+  },
+  "assessment_file": "assessment/a4_review_consensus.csv",
+  "assessment_fields_complete": true,
+  "assessment_unit": "One combined program-CWE technical decision per row; 180 unique rows.",
+  "manuscript": {
+    "abstract_words": 136,
+    "results_discussion_prose_words": 1946,
+    "conclusion_words": 360,
+    "figures": 5,
+    "graphs": 5,
+    "results_tables": 10,
+    "all_tables": 16,
+    "assessment_link": "assessment/a4_review_consensus.csv",
+    "local_evidence_paths_verified": 21,
+    "public_link_availability": "Not verified; local path correspondence checked."
+  }
+}

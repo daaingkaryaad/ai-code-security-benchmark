@@ -1,0 +1,103 @@
+{
+  "program_counts": {
+    "python": {
+      "database": 5,
+      "files": 5,
+      "authentication": 5
+    },
+    "java": {
+      "database": 5,
+      "files": 5,
+      "authentication": 5
+    },
+    "javascript": {
+      "database": 5,
+      "files": 5,
+      "authentication": 5
+    }
+  },
+  "source_line_summary": {
+    "python": {
+      "n": 15,
+      "minimum": 9,
+      "maximum": 75,
+      "median": 22,
+      "sum": 458
+    },
+    "java": {
+      "n": 15,
+      "minimum": 15,
+      "maximum": 130,
+      "median": 36,
+      "sum": 715
+    },
+    "javascript": {
+      "n": 15,
+      "minimum": 8,
+      "maximum": 84,
+      "median": 23,
+      "sum": 466
+    }
+  },
+  "positive_control_detected_matrix": [
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0
+    ]
+  ],
+  "matrix_rows": [
+    "CWE-89",
+    "CWE-22",
+    "CWE-256",
+    "CWE-798"
+  ],
+  "matrix_columns": [
+    "PY",
+    "JAVA",
+    "JS"
+  ],
+  "control_confusion": {
+    "TP": 1,
+    "FN": 11,
+    "TN": 12,
+    "FP": 0
+  },
+  "assessment_counts_per_cwe": {
+    "CWE-89": {
+      "applicable_negative": 15,
+      "not_applicable": 30,
+      "technical_positive": 0
+    },
+    "CWE-22": {
+      "applicable_negative": 15,
+      "not_applicable": 30,
+      "technical_positive": 0
+    },
+    "CWE-256": {
+      "applicable_negative": 15,
+      "not_applicable": 30,
+      "technical_positive": 0
+    },
+    "CWE-798": {
+      "applicable_negative": 15,
+      "not_applicable": 30,
+      "technical_positive": 0
+    }
+  }
+}

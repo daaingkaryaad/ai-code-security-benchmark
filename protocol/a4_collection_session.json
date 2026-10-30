@@ -1,0 +1,9 @@
+{
+  "recorded_utc": "2026-10-30T09:35:30+00:00",
+  "displayed_model": "gpt-6",
+  "thinking": "medium",
+  "interface": "chatgpt web; manual fresh conversation per sample",
+  "schedule_sha256": "69cf605064db2d6f16e5ace93387f201681380e2ec0c90c6efb47b06cbbefedf",
+  "plan": "27 additional samples from unchanged existing prompts; one generation per slot",
+  "historical_boundary": "extension planned after the original results were known; no original expectation fixation date claimed"
+}

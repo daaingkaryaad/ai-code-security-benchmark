@@ -1,0 +1,49 @@
+T9. Expected Results and Falsification Criteria
+The following expectation themes were supplied by the teammate’s earlier working draft. Their precise pre-analysis approval timestamp is not available in the archived material, so they are treated as documented working expectations, rather than falsely described as registered predictions. They are not rewritten to match the zero-alert scans. Expectations that require reconciled human labels remain inconclusive.
+Id
+Expected observation
+What would contradict it
+Current evidence
+Er1
+At least one manually confirmed target CWE type appears within each task domain
+A reviewed domain contains no confirmed targeted weakness
+Inconclusive; scanner alerts alone cannot establish this
+Er2
+The overall confirmed vulnerable-sample percentages differ among the three languages
+Equal confirmed percentages across all three languages
+Inconclusive
+Er3
+Confirmed CWE-category profiles differ for at least two domains
+All three reviewed domain profiles are identical
+Inconclusive
+Er4
+At least one matched task produces different vulnerability labels across language implementations
+All three language implementations agree for every reviewed task
+Inconclusive
+Er5
+At least one scanner alert is rejected or reclassified during manual review
+Every existing initial alert is accepted
+No alerts appeared; predicted event not observed
+Er6
+At least one domain yields language ordering different from the overall ordering
+All domain orderings equal the overall ordering
+Inconclusive; no confirmed rate ranking
+
+Six Possible Research Outcomes
+Class
+Scenario
+Bad 1
+Over 20% of attempts are not analyzable in at least one language
+Bad 2
+Over 20% of contested reviewer cases cannot be reconciled
+Medium 1
+All nine language-domain cells have usable records, but confirmed CWE findings are sparse
+Medium 2
+Descriptive language contrasts vary with task domain and are unstable
+Good 1
+At least 90% of scheduled attempts have auditable generation and screening records
+Good 2
+Manual CWE categories support a transparent matched language-by-domain description
+
+T10. Method-Related Expectations
+The expected direction was a domain-dependent pattern of potential weakness classes, with no assumed universally safest language. Broad exploratory planning envelopes were 0–60% for any-confirmed-CWE rate and 0–40% for a single CWE frequency in each language-domain cell, with uncommon categories expected to show zeros. Expected instrument problems included false-positive or missed scanner patterns, truncated model responses, parsing failures, and imperfect cross-language dependency equivalence. These broad ranges have no validated statistical confidence meaning. Equal or highly unstable matched outcomes would not justify a language ranking. By condition, the applicable target categories are CWE-89 for database access, CWE-22 for file handling, and CWE-256 and CWE-798 for authentication. These specify the expected weakness classes to examine, without presuming a positive result or a language ranking.

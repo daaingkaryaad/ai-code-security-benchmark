@@ -1,0 +1,62 @@
+{
+  "recorded_utc": "2026-10-30T09:24:00.473888+00:00",
+  "config": "p/security-audit",
+  "instrument_version": "1.1.0",
+  "instrument_sha256": "04f17434b4282ec4cdce3d97d00168ec63d05dd5d6235180dd59b4953627fc21",
+  "config_is_frozen": true,
+  "semgrep_executable": "/opt/homebrew/bin/semgrep",
+  "historical_semgrep_version": "1.182.0",
+  "runs": [
+    {
+      "label": "calibration",
+      "command": [
+        "/opt/homebrew/bin/semgrep",
+        "scan",
+        "--config=/Users/ingkarpahr/Desktop/ai-code-security-benchmark/data/processed/a4-calibration-20261030T092400473888Z/resolved_rules.yaml",
+        "--metrics=off",
+        "--json",
+        "--no-git-ignore",
+        "--output=/Users/ingkarpahr/Desktop/ai-code-security-benchmark/data/processed/a4-calibration-20261030T092400473888Z/calibration_semgrep.json",
+        "fixtures/calibration"
+      ],
+      "returncode": 0,
+      "alerts": 1,
+      "errors": 0,
+      "scanned_paths": 26,
+      "version": "1.182.0",
+      "all_expected_paths_scanned": true,
+      "missing_paths": []
+    },
+    {
+      "label": "final_r1",
+      "command": [
+        "/opt/homebrew/bin/semgrep",
+        "scan",
+        "--config=/Users/ingkarpahr/Desktop/ai-code-security-benchmark/data/processed/a4-calibration-20261030T092400473888Z/resolved_rules.yaml",
+        "--metrics=off",
+        "--json",
+        "--no-git-ignore",
+        "--output=/Users/ingkarpahr/Desktop/ai-code-security-benchmark/data/processed/a4-calibration-20261030T092400473888Z/final_r1_semgrep.json",
+        "data/source/final-web-v1"
+      ],
+      "returncode": 0,
+      "alerts": 0,
+      "errors": 0,
+      "scanned_paths": 18,
+      "version": "1.182.0",
+      "all_expected_paths_scanned": true,
+      "missing_paths": []
+    }
+  ],
+  "registry_http_content_type": "text/yaml; charset=utf-8",
+  "registry_url": "https://semgrep.dev/c/p/security-audit",
+  "registry_downloaded_utc": "2026-10-30T09:24:09.982618+00:00",
+  "registry_format": "yaml",
+  "registry_rule_count": null,
+  "snapshot_validation": "semgrep performs complete parsing and rule validation during both scans",
+  "historical_rule_identity": "unknown; this is a current snapshot, not the historical pack",
+  "config_sha256": "83d7cde9157b3c79cc5cfaea26e7bd2ba9c740f2ba07635ad475b2585556c32d",
+  "version_stdout": "1.182.0",
+  "version_stderr": "A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading",
+  "status": "complete scan session"
+}

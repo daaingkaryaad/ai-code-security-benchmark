@@ -1,0 +1,93 @@
+{
+  "screened": 10,
+  "retained": 7,
+  "rejected": 3,
+  "sources": [
+    {
+      "author": "pearce et al.",
+      "year": 2022,
+      "kind": "conference paper",
+      "role": "empirical generation study",
+      "url": "https://arxiv.org/pdf/2108.09293",
+      "status": "full author manuscript inspected",
+      "finding": "copilot outputs can contain exploitable patterns, and detection depends on task and analysis coverage.",
+      "relation": "extends",
+      "comparison": "Our matched three-language corpus and explicit positive/negative controls extend the assessment context. Different models, prompts and examined weaknesses prevent direct rate comparisons."
+    },
+    {
+      "author": "khoury et al.",
+      "year": 2023,
+      "kind": "conference paper",
+      "role": "empirical generation study",
+      "url": "https://arxiv.org/html/2304.09655v2",
+      "status": "full author manuscript inspected; version 2",
+      "finding": "security-sensitive tasks and subsequent prompting expose different security concerns in chatgpt outputs.",
+      "relation": "extends",
+      "comparison": "our fixed first-response design separates initial outputs from repair dialogue. differences in model, tasks and security instructions prevent direct rate comparisons."
+    },
+    {
+      "author": "schreiber and tippe",
+      "year": 2026,
+      "kind": "conference chapter",
+      "role": "empirical repository study",
+      "url": "https://arxiv.org/html/2510.26103v1",
+      "status": "full author manuscript inspected; publisher citation year 2026",
+      "finding": "codeql identifies weaknesses in ai-attributed repository files; repository attribution and surrounding context constrain interpretation.",
+      "relation": "extends",
+      "comparison": "our directly logged matched functions reduce uncertainty about collection provenance and add java. they do not reproduce repository integration or attribution conditions."
+    },
+    {
+      "author": "tihanyi et al.",
+      "year": 2025,
+      "kind": "journal article",
+      "role": "empirical c-language benchmark",
+      "url": "https://arxiv.org/html/2404.18353",
+      "status": "full author manuscript inspected; version 2",
+      "finding": "A C-language benchmark assesses generated programs through formal verification with ESBMC in an unbounded setting, subject to execution limits.",
+      "relation": "supports",
+      "comparison": "The generated C programs, examined properties and formal-verification instrument differ from our matched functions and frozen static rule pack. The study informs our distinction between executable screening and adequate semantic coverage; its rates are not a language-effect baseline for our corpus."
+    },
+    {
+      "author": "aydın and bahtiyar",
+      "year": 2026,
+      "kind": "preprint",
+      "role": "empirical cross-language benchmark",
+      "url": "https://ssrn.com/abstract=6968361",
+      "status": "Full 14-page preprint inspected, including methods, results and limitations.",
+      "finding": "A matched multi-model, multi-language prompt design uses Semgrep, Snyk and SonarCloud, followed by manual review; CWE distributions and model rankings depend on language and the metric used.",
+      "relation": "extends",
+      "comparison": "Our study extends the measurement discussion with explicit positive and negative controls. Our smaller functions, security-relevant task constraints, single visible generator and one frozen scanner configuration differ from their broader functional prompts and multi-tool analysis. The observed rates cannot establish a direct replication or contradiction.",
+      "local_full_text": "evidence/literature/ssrn-6968361.pdf",
+      "full_text_sha256": "b17cfcd763e0986fb651ebe1009df89d24344fb41ed37501097c308fb735234c"
+    },
+    {
+      "author": "fu et al.",
+      "year": 2025,
+      "kind": "journal article",
+      "role": "empirical repository study",
+      "url": "https://arxiv.org/html/2310.02059v4",
+      "status": "full author manuscript inspected; version 4",
+      "finding": "repository-derived python and javascript snippets contain weaknesses assessed with language-specific tools and manual warning filtering.",
+      "relation": "supports",
+      "comparison": "Our separate reporting of scanner alerts and source-level mechanisms supports the distinction between candidate warnings and assessed weaknesses. Matched task descriptions and Java extend the comparison context without establishing a prevalence difference from repository snippets."
+    },
+    {
+      "author": "basic and giaretta",
+      "year": 2026,
+      "kind": "preprint",
+      "role": "secondary systematic review",
+      "url": "https://arxiv.org/html/2412.15004v4",
+      "status": "full review manuscript inspected; version 4; journal publication not verified",
+      "finding": "the review identifies heterogeneous generation, detection and remediation evaluations.",
+      "relation": "supports",
+      "comparison": "the gap between scanner silence and missed known positives illustrates why tool coverage and outcome definitions must accompany a security result."
+    }
+  ],
+  "identity_correction": "original source 10 is basic and giaretta; original rejected source 7 is not retained",
+  "publication_kinds": {
+    "journal": 2,
+    "conference": 3,
+    "preprint": 2
+  },
+  "access_boundary": "All seven retained sources have full-text routes; six author manuscripts were inspected online and the supplied 14-page Aydın and Bahtiyar preprint is included in evidence/literature."
+}

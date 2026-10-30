@@ -1,0 +1,210 @@
+{
+  "sources": 27,
+  "raw_records": 27,
+  "final_total": 45,
+  "java_checks": [
+    {
+      "sample_id": "DB03_JAVA_R1",
+      "filename": "Solution.java",
+      "public_classes": [
+        "Solution"
+      ]
+    },
+    {
+      "sample_id": "DB04_JAVA_R1",
+      "filename": "Solution.java",
+      "public_classes": [
+        "Solution"
+      ]
+    },
+    {
+      "sample_id": "DB05_JAVA_R1",
+      "filename": "Solution.java",
+      "public_classes": [
+        "Solution"
+      ]
+    },
+    {
+      "sample_id": "FILE03_JAVA_R1",
+      "filename": "Solution.java",
+      "public_classes": [
+        "Solution"
+      ]
+    },
+    {
+      "sample_id": "FILE04_JAVA_R1",
+      "filename": "Solution.java",
+      "public_classes": [
+        "Solution"
+      ]
+    },
+    {
+      "sample_id": "FILE05_JAVA_R1",
+      "filename": "Solution.java",
+      "public_classes": [
+        "Solution"
+      ]
+    },
+    {
+      "sample_id": "AUTH03_JAVA_R1",
+      "filename": "Solution.java",
+      "public_classes": [
+        "Solution"
+      ]
+    },
+    {
+      "sample_id": "AUTH04_JAVA_R1",
+      "filename": "Solution.java",
+      "public_classes": [
+        "Solution"
+      ]
+    },
+    {
+      "sample_id": "AUTH05_JAVA_R1",
+      "filename": "Solution.java",
+      "public_classes": [
+        "Solution"
+      ]
+    }
+  ],
+  "syntax_checks": [
+    [
+      "DB03_PY_R1",
+      "python syntax pass"
+    ],
+    [
+      "DB03_JS_R1",
+      "javascript syntax pass"
+    ],
+    [
+      "DB04_PY_R1",
+      "python syntax pass"
+    ],
+    [
+      "DB04_JS_R1",
+      "javascript syntax pass"
+    ],
+    [
+      "DB05_PY_R1",
+      "python syntax pass"
+    ],
+    [
+      "DB05_JS_R1",
+      "javascript syntax pass"
+    ],
+    [
+      "FILE03_PY_R1",
+      "python syntax pass"
+    ],
+    [
+      "FILE03_JS_R1",
+      "javascript syntax pass"
+    ],
+    [
+      "FILE04_PY_R1",
+      "python syntax pass"
+    ],
+    [
+      "FILE04_JS_R1",
+      "javascript syntax pass"
+    ],
+    [
+      "FILE05_PY_R1",
+      "python syntax pass"
+    ],
+    [
+      "FILE05_JS_R1",
+      "javascript syntax pass"
+    ],
+    [
+      "AUTH03_PY_R1",
+      "python syntax pass"
+    ],
+    [
+      "AUTH03_JS_R1",
+      "javascript syntax pass"
+    ],
+    [
+      "AUTH04_PY_R1",
+      "python syntax pass"
+    ],
+    [
+      "AUTH04_JS_R1",
+      "javascript syntax pass"
+    ],
+    [
+      "AUTH05_PY_R1",
+      "python syntax pass"
+    ],
+    [
+      "AUTH05_JS_R1",
+      "javascript syntax pass"
+    ]
+  ],
+  "issues": [],
+  "original_source_changes": [],
+  "byte_identical_groups": [],
+  "session": {
+    "recorded_utc": "2026-10-30T09:35:30+00:00",
+    "displayed_model": "gpt-6",
+    "thinking": "medium",
+    "interface": "chatgpt web; manual fresh conversation per sample",
+    "schedule_sha256": "69cf605064db2d6f16e5ace93387f201681380e2ec0c90c6efb47b06cbbefedf",
+    "plan": "27 additional samples from unchanged existing prompts; one generation per slot",
+    "historical_boundary": "extension planned after the original results were known; no original expectation fixation date claimed"
+  },
+  "evidence_boundary": "syntax checks are not functional tests; java compilation not executed in this environment",
+  "final_source_files": 45,
+  "final_response_records": 45,
+  "original_sources_unchanged": 18,
+  "source_byte_duplicate_groups": 0,
+  "source_files_missing": 0,
+  "raw_files_missing": 0,
+  "applicable_source_decisions": 60,
+  "not_applicable_source_decisions": 120,
+  "independent_human_review_decisions_supplied": 0,
+  "raw_source_overlap": {
+    "original": {
+      "full_exact_or_normalized": 10,
+      "not_full_source": 8
+    },
+    "extension": {
+      "full_exact_or_normalized": 21,
+      "not_full_source": 6
+    },
+    "total_full_exact_or_normalized": 31,
+    "total_not_full_source": 14
+  },
+  "preparation_operations": [
+    {
+      "operation": "pilot exclusion",
+      "rule": "separate pilot batch; no outcome-based exclusion",
+      "affected": 9
+    },
+    {
+      "operation": "final merge",
+      "rule": "preserve original 18 and append 27 distinct task-language records",
+      "affected": 45
+    },
+    {
+      "operation": "source hashes",
+      "rule": "sha256 complete saved source bytes",
+      "affected": 45
+    },
+    {
+      "operation": "CWE applicability",
+      "rule": "domain operation and complete source inspection",
+      "affected": 180
+    },
+    {
+      "operation": "raw response comparison",
+      "rule": "exact or newline/whitespace-normalized full-source containment",
+      "affected": 45
+    },
+    {
+      "operation": "scanner provenance update",
+      "rule": "replace unverified extension count with actual combined scan json",
+      "affected": 27
+    }
+  ]
+}

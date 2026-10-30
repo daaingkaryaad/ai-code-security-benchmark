@@ -1,0 +1,30 @@
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 18 files with 225 Code rules:
+                                                                                                                        
+  Language      Rules   Files          Origin      Rules                                                                
+ ─────────────────────────────        ───────────────────                                                               
+  <multilang>       2      18          Community     225                                                                
+  python           77       6                                                                                           
+  java             52       6                                                                                           
+  js               20       6                                                                                           
+                                                                                                                        
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 0 (0 blocking)
+ • Rules run: 151
+ • Targets scanned: 18
+ • Parsed lines: ~100.0%
+ • No ignore information available
+Ran 151 rules on 18 files: 0 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+If Semgrep missed a finding, please send us feedback to let us know!
+See https://semgrep.dev/docs/reporting-false-negatives/

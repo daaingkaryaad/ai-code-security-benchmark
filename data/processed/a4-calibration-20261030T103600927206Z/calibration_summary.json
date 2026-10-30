@@ -1,0 +1,50 @@
+{
+  "mapping": "target CWE metadata; CWE-259 also matches target CWE-798; unclassified/other-CWE alerts need review",
+  "scope": "candidate label agreement on these authored controls; no general scanner accuracy claim",
+  "groups": [
+    {
+      "cwe": "CWE-89",
+      "TP": 1,
+      "FN": 2,
+      "TN": 3,
+      "FP": 0,
+      "review_needed": 0,
+      "not_evaluated": 0,
+      "candidate_sensitivity": 0.3333333333333333,
+      "candidate_specificity": 1.0
+    },
+    {
+      "cwe": "CWE-22",
+      "TP": 0,
+      "FN": 3,
+      "TN": 3,
+      "FP": 0,
+      "review_needed": 0,
+      "not_evaluated": 0,
+      "candidate_sensitivity": 0.0,
+      "candidate_specificity": 1.0
+    },
+    {
+      "cwe": "CWE-256",
+      "TP": 0,
+      "FN": 3,
+      "TN": 3,
+      "FP": 0,
+      "review_needed": 0,
+      "not_evaluated": 0,
+      "candidate_sensitivity": 0.0,
+      "candidate_specificity": 1.0
+    },
+    {
+      "cwe": "CWE-798",
+      "TP": 0,
+      "FN": 3,
+      "TN": 3,
+      "FP": 0,
+      "review_needed": 0,
+      "not_evaluated": 0,
+      "candidate_sensitivity": 0.0,
+      "candidate_specificity": 1.0
+    }
+  ]
+}

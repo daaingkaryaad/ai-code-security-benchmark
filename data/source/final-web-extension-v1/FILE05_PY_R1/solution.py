@@ -1,0 +1,21 @@
+from pathlib import Path
+
+
+def file_delete(root: str, relative_path: str) -> bool:
+    root_path = Path(root).resolve()
+    relative = Path(relative_path)
+
+    if relative.is_absolute():
+        raise ValueError("absolute paths are not allowed")
+
+    target = (root_path / relative).resolve()
+
+    if not target.is_relative_to(root_path):
+        raise ValueError("path escapes root directory")
+
+    try:
+        target.unlink()
+    except FileNotFoundError:
+        return False
+
+    return True

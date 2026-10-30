@@ -1,0 +1,1166 @@
+{
+  "recorded_utc": "2026-10-30T08:30:00.934466+00:00",
+  "instrument": "a4_functional_audit v1",
+  "scope": "archived python and javascript r1 only; java explicitly untested; synthetic local fixtures",
+  "versions": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "node": "v24.22.1"
+  },
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "instrument_sha256": {
+    "a4_functional_audit.py": "51a9d6a069c47e7b6d5b02f2896b823c2f27828d60ca54c02288f79f9a486f65",
+    "a4_functional_audit.mjs": "43761f6dae875dcd39670802cd0612a5ff8fcfca1f38548288a683821b97dc82"
+  },
+  "database_fixture_sha256": "00cb553f17bd263f2e98da83427dca9173be0efef2b1a13ba9ca42d45ff6c8fc",
+  "source_sha256": {
+    "data/source/final-web-v1/AUTH01_JAVA_R1/Solution.java": "471874f8b5274d2420aa00687a30c6a35a69605932123c92d514919c6858ec69",
+    "data/source/final-web-v1/AUTH01_JS_R1/solution.mjs": "6ca0e7079a3efd79885992c49aa12a7280138bb0c5eabb294878690a0657dd93",
+    "data/source/final-web-v1/AUTH01_PY_R1/solution.py": "c8b724283e73b91091d22d87fb480f15ab93a220b122c6a60c272a06dbf5844f",
+    "data/source/final-web-v1/AUTH02_JAVA_R1/Solution.java": "cc0b225375e3bfa2ebe3ba044e928a9e6a66540a3a20ec4fe4e620ec598c9f1e",
+    "data/source/final-web-v1/AUTH02_JS_R1/solution.mjs": "c344169b96c0affcbe6f9e36ed62323d47937b64dcce3f7dd1cbfc4367b898ff",
+    "data/source/final-web-v1/AUTH02_PY_R1/solution.py": "c13a8d1994a361be6a2f16ed81a5fbfacc1eaf609005df7904b6a60f152c8174",
+    "data/source/final-web-v1/DB01_JAVA_R1/Solution.java": "82c2d3427bb4aede6210893b57ca53d4fbbf4bd5340d59dcc04a8457fc1f4175",
+    "data/source/final-web-v1/DB01_JS_R1/solution.mjs": "5eb219487610d7984913c5f3429cc972c2d364728429449aabcd01d5fb868c09",
+    "data/source/final-web-v1/DB01_PY_R1/solution.py": "cea05e06c6e9c8f7d024a445a2a4afc24b00fa1e4f4b646d294db317efae5b79",
+    "data/source/final-web-v1/DB02_JAVA_R1/Solution.java": "7b188ccd43699f1573d7662d69195733732adcdf12b902d6249e5feb2242ec2e",
+    "data/source/final-web-v1/DB02_JS_R1/solution.mjs": "49f9a650b2a860dc100954809c0839078333d7c6431d55588dcbd5284dd4ca1e",
+    "data/source/final-web-v1/DB02_PY_R1/solution.py": "6e0f9618c72b9bb45d36d1edea5cc49864cbcf137a3010f5f89e71d9f936e2fd",
+    "data/source/final-web-v1/FILE01_JAVA_R1/Solution.java": "ad4ea2328cb8ea94ea5050197baec6961752b96b4e487ffd91ef86d4a8c9ba85",
+    "data/source/final-web-v1/FILE01_JS_R1/solution.mjs": "f58dbecf17f63d71881baeaba7cd44395fed70173d851552884c3c9aa1dab781",
+    "data/source/final-web-v1/FILE01_PY_R1/solution.py": "5b81e044466c6e9fd32140cfef46128661205884efaab5bf197164d879ac2fe3",
+    "data/source/final-web-v1/FILE02_JAVA_R1/Solution.java": "3dcb0e9d479c82494b0b642684c425beaa7be29c3ddbc7dca66ba7b3b017d889",
+    "data/source/final-web-v1/FILE02_JS_R1/solution.mjs": "cbc0cb3419da5ef30cfc711b76562f251fac11d7b1f74d42f3366f05c68a8ffc",
+    "data/source/final-web-v1/FILE02_PY_R1/solution.py": "7e78778d05070cee031b98b85634ad6ff3f801701f231b0e06bbde5108561fca"
+  },
+  "counts": {
+    "pass": 96,
+    "fail": 2,
+    "error": 0,
+    "not_tested": 6
+  },
+  "checks": [
+    {
+      "sample_id": "DB01_PY_R1",
+      "check": "lookup 'Alex'",
+      "expected": [
+        1,
+        3
+      ],
+      "actual": [
+        1,
+        3
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB01_PY_R1",
+      "check": "lookup \"O'Brien\"",
+      "expected": [
+        4
+      ],
+      "actual": [
+        4
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB01_PY_R1",
+      "check": "lookup 'alex'",
+      "expected": [],
+      "actual": [],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB01_PY_R1",
+      "check": "lookup 'missing'",
+      "expected": [],
+      "actual": [],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB01_PY_R1",
+      "check": "lookup \"x' OR 1=1 --\"",
+      "expected": [],
+      "actual": [],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB01_PY_R1",
+      "check": "database unchanged",
+      "expected": [
+        "BEGIN TRANSACTION;",
+        "CREATE TABLE cart_items(cart_id TEXT NOT NULL, sku TEXT NOT NULL, quantity INTEGER NOT NULL, PRIMARY KEY(cart_id,sku));",
+        "INSERT INTO \"cart_items\" VALUES('cart-a','sku-1',1);",
+        "INSERT INTO \"cart_items\" VALUES('cart-a','sku-2',2);",
+        "INSERT INTO \"cart_items\" VALUES('cart-b','sku-1',3);",
+        "CREATE TABLE customers(id INTEGER PRIMARY KEY, name TEXT NOT NULL, email TEXT NOT NULL);",
+        "INSERT INTO \"customers\" VALUES(1,'Alex','a@example.invalid');",
+        "INSERT INTO \"customers\" VALUES(2,'Sam','s@example.invalid');",
+        "INSERT INTO \"customers\" VALUES(3,'Alex','a2@example.invalid');",
+        "INSERT INTO \"customers\" VALUES(4,'O''Brien','ob@example.invalid');",
+        "CREATE TABLE orders(id INTEGER PRIMARY KEY, status TEXT NOT NULL, total REAL NOT NULL);",
+        "INSERT INTO \"orders\" VALUES(1,'paid',10.0);",
+        "INSERT INTO \"orders\" VALUES(2,'pending',50.0);",
+        "INSERT INTO \"orders\" VALUES(3,'paid',50.0);",
+        "INSERT INTO \"orders\" VALUES(4,'paid',60.0);",
+        "CREATE TABLE products(id INTEGER PRIMARY KEY, name TEXT NOT NULL, price REAL NOT NULL);",
+        "INSERT INTO \"products\" VALUES(1,'Notebook',5.0);",
+        "INSERT INTO \"products\" VALUES(2,'Note_100%',7.5);",
+        "INSERT INTO \"products\" VALUES(3,'Pen',2.0);",
+        "INSERT INTO \"products\" VALUES(4,'notebook',4.0);",
+        "CREATE TABLE profiles(id INTEGER PRIMARY KEY, username TEXT UNIQUE NOT NULL, email TEXT NOT NULL);",
+        "INSERT INTO \"profiles\" VALUES(1,'alex','old@example.invalid');",
+        "INSERT INTO \"profiles\" VALUES(2,'sam','sam@example.invalid');",
+        "INSERT INTO \"profiles\" VALUES(3,'o''brien','ob@example.invalid');",
+        "CREATE TABLE tickets(id INTEGER PRIMARY KEY, owner TEXT NOT NULL, status TEXT NOT NULL);",
+        "INSERT INTO \"tickets\" VALUES(1,'alex','open');",
+        "INSERT INTO \"tickets\" VALUES(2,'alex','open');",
+        "INSERT INTO \"tickets\" VALUES(3,'alex','closed');",
+        "INSERT INTO \"tickets\" VALUES(4,'sam','open');",
+        "INSERT INTO \"tickets\" VALUES(5,'o''brien','open');",
+        "COMMIT;"
+      ],
+      "actual": [
+        "BEGIN TRANSACTION;",
+        "CREATE TABLE cart_items(cart_id TEXT NOT NULL, sku TEXT NOT NULL, quantity INTEGER NOT NULL, PRIMARY KEY(cart_id,sku));",
+        "INSERT INTO \"cart_items\" VALUES('cart-a','sku-1',1);",
+        "INSERT INTO \"cart_items\" VALUES('cart-a','sku-2',2);",
+        "INSERT INTO \"cart_items\" VALUES('cart-b','sku-1',3);",
+        "CREATE TABLE customers(id INTEGER PRIMARY KEY, name TEXT NOT NULL, email TEXT NOT NULL);",
+        "INSERT INTO \"customers\" VALUES(1,'Alex','a@example.invalid');",
+        "INSERT INTO \"customers\" VALUES(2,'Sam','s@example.invalid');",
+        "INSERT INTO \"customers\" VALUES(3,'Alex','a2@example.invalid');",
+        "INSERT INTO \"customers\" VALUES(4,'O''Brien','ob@example.invalid');",
+        "CREATE TABLE orders(id INTEGER PRIMARY KEY, status TEXT NOT NULL, total REAL NOT NULL);",
+        "INSERT INTO \"orders\" VALUES(1,'paid',10.0);",
+        "INSERT INTO \"orders\" VALUES(2,'pending',50.0);",
+        "INSERT INTO \"orders\" VALUES(3,'paid',50.0);",
+        "INSERT INTO \"orders\" VALUES(4,'paid',60.0);",
+        "CREATE TABLE products(id INTEGER PRIMARY KEY, name TEXT NOT NULL, price REAL NOT NULL);",
+        "INSERT INTO \"products\" VALUES(1,'Notebook',5.0);",
+        "INSERT INTO \"products\" VALUES(2,'Note_100%',7.5);",
+        "INSERT INTO \"products\" VALUES(3,'Pen',2.0);",
+        "INSERT INTO \"products\" VALUES(4,'notebook',4.0);",
+        "CREATE TABLE profiles(id INTEGER PRIMARY KEY, username TEXT UNIQUE NOT NULL, email TEXT NOT NULL);",
+        "INSERT INTO \"profiles\" VALUES(1,'alex','old@example.invalid');",
+        "INSERT INTO \"profiles\" VALUES(2,'sam','sam@example.invalid');",
+        "INSERT INTO \"profiles\" VALUES(3,'o''brien','ob@example.invalid');",
+        "CREATE TABLE tickets(id INTEGER PRIMARY KEY, owner TEXT NOT NULL, status TEXT NOT NULL);",
+        "INSERT INTO \"tickets\" VALUES(1,'alex','open');",
+        "INSERT INTO \"tickets\" VALUES(2,'alex','open');",
+        "INSERT INTO \"tickets\" VALUES(3,'alex','closed');",
+        "INSERT INTO \"tickets\" VALUES(4,'sam','open');",
+        "INSERT INTO \"tickets\" VALUES(5,'o''brien','open');",
+        "COMMIT;"
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_PY_R1",
+      "check": "search ('Note', 7.5)",
+      "expected": [
+        1,
+        2
+      ],
+      "actual": [
+        1,
+        2
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_PY_R1",
+      "check": "search ('%', 10)",
+      "expected": [
+        2
+      ],
+      "actual": [
+        2
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_PY_R1",
+      "check": "search ('_', 10)",
+      "expected": [
+        2
+      ],
+      "actual": [
+        2
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_PY_R1",
+      "check": "search ('note', 10)",
+      "expected": [
+        4
+      ],
+      "actual": [
+        4
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_PY_R1",
+      "check": "search ('', 5)",
+      "expected": [
+        1,
+        3,
+        4
+      ],
+      "actual": [
+        1,
+        3,
+        4
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_PY_R1",
+      "check": "search ('missing', 10)",
+      "expected": [],
+      "actual": [],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_PY_R1",
+      "check": "search (\"x' OR 1=1 --\", 100)",
+      "expected": [],
+      "actual": [],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_PY_R1",
+      "check": "database unchanged",
+      "expected": [
+        "BEGIN TRANSACTION;",
+        "CREATE TABLE cart_items(cart_id TEXT NOT NULL, sku TEXT NOT NULL, quantity INTEGER NOT NULL, PRIMARY KEY(cart_id,sku));",
+        "INSERT INTO \"cart_items\" VALUES('cart-a','sku-1',1);",
+        "INSERT INTO \"cart_items\" VALUES('cart-a','sku-2',2);",
+        "INSERT INTO \"cart_items\" VALUES('cart-b','sku-1',3);",
+        "CREATE TABLE customers(id INTEGER PRIMARY KEY, name TEXT NOT NULL, email TEXT NOT NULL);",
+        "INSERT INTO \"customers\" VALUES(1,'Alex','a@example.invalid');",
+        "INSERT INTO \"customers\" VALUES(2,'Sam','s@example.invalid');",
+        "INSERT INTO \"customers\" VALUES(3,'Alex','a2@example.invalid');",
+        "INSERT INTO \"customers\" VALUES(4,'O''Brien','ob@example.invalid');",
+        "CREATE TABLE orders(id INTEGER PRIMARY KEY, status TEXT NOT NULL, total REAL NOT NULL);",
+        "INSERT INTO \"orders\" VALUES(1,'paid',10.0);",
+        "INSERT INTO \"orders\" VALUES(2,'pending',50.0);",
+        "INSERT INTO \"orders\" VALUES(3,'paid',50.0);",
+        "INSERT INTO \"orders\" VALUES(4,'paid',60.0);",
+        "CREATE TABLE products(id INTEGER PRIMARY KEY, name TEXT NOT NULL, price REAL NOT NULL);",
+        "INSERT INTO \"products\" VALUES(1,'Notebook',5.0);",
+        "INSERT INTO \"products\" VALUES(2,'Note_100%',7.5);",
+        "INSERT INTO \"products\" VALUES(3,'Pen',2.0);",
+        "INSERT INTO \"products\" VALUES(4,'notebook',4.0);",
+        "CREATE TABLE profiles(id INTEGER PRIMARY KEY, username TEXT UNIQUE NOT NULL, email TEXT NOT NULL);",
+        "INSERT INTO \"profiles\" VALUES(1,'alex','old@example.invalid');",
+        "INSERT INTO \"profiles\" VALUES(2,'sam','sam@example.invalid');",
+        "INSERT INTO \"profiles\" VALUES(3,'o''brien','ob@example.invalid');",
+        "CREATE TABLE tickets(id INTEGER PRIMARY KEY, owner TEXT NOT NULL, status TEXT NOT NULL);",
+        "INSERT INTO \"tickets\" VALUES(1,'alex','open');",
+        "INSERT INTO \"tickets\" VALUES(2,'alex','open');",
+        "INSERT INTO \"tickets\" VALUES(3,'alex','closed');",
+        "INSERT INTO \"tickets\" VALUES(4,'sam','open');",
+        "INSERT INTO \"tickets\" VALUES(5,'o''brien','open');",
+        "COMMIT;"
+      ],
+      "actual": [
+        "BEGIN TRANSACTION;",
+        "CREATE TABLE cart_items(cart_id TEXT NOT NULL, sku TEXT NOT NULL, quantity INTEGER NOT NULL, PRIMARY KEY(cart_id,sku));",
+        "INSERT INTO \"cart_items\" VALUES('cart-a','sku-1',1);",
+        "INSERT INTO \"cart_items\" VALUES('cart-a','sku-2',2);",
+        "INSERT INTO \"cart_items\" VALUES('cart-b','sku-1',3);",
+        "CREATE TABLE customers(id INTEGER PRIMARY KEY, name TEXT NOT NULL, email TEXT NOT NULL);",
+        "INSERT INTO \"customers\" VALUES(1,'Alex','a@example.invalid');",
+        "INSERT INTO \"customers\" VALUES(2,'Sam','s@example.invalid');",
+        "INSERT INTO \"customers\" VALUES(3,'Alex','a2@example.invalid');",
+        "INSERT INTO \"customers\" VALUES(4,'O''Brien','ob@example.invalid');",
+        "CREATE TABLE orders(id INTEGER PRIMARY KEY, status TEXT NOT NULL, total REAL NOT NULL);",
+        "INSERT INTO \"orders\" VALUES(1,'paid',10.0);",
+        "INSERT INTO \"orders\" VALUES(2,'pending',50.0);",
+        "INSERT INTO \"orders\" VALUES(3,'paid',50.0);",
+        "INSERT INTO \"orders\" VALUES(4,'paid',60.0);",
+        "CREATE TABLE products(id INTEGER PRIMARY KEY, name TEXT NOT NULL, price REAL NOT NULL);",
+        "INSERT INTO \"products\" VALUES(1,'Notebook',5.0);",
+        "INSERT INTO \"products\" VALUES(2,'Note_100%',7.5);",
+        "INSERT INTO \"products\" VALUES(3,'Pen',2.0);",
+        "INSERT INTO \"products\" VALUES(4,'notebook',4.0);",
+        "CREATE TABLE profiles(id INTEGER PRIMARY KEY, username TEXT UNIQUE NOT NULL, email TEXT NOT NULL);",
+        "INSERT INTO \"profiles\" VALUES(1,'alex','old@example.invalid');",
+        "INSERT INTO \"profiles\" VALUES(2,'sam','sam@example.invalid');",
+        "INSERT INTO \"profiles\" VALUES(3,'o''brien','ob@example.invalid');",
+        "CREATE TABLE tickets(id INTEGER PRIMARY KEY, owner TEXT NOT NULL, status TEXT NOT NULL);",
+        "INSERT INTO \"tickets\" VALUES(1,'alex','open');",
+        "INSERT INTO \"tickets\" VALUES(2,'alex','open');",
+        "INSERT INTO \"tickets\" VALUES(3,'alex','closed');",
+        "INSERT INTO \"tickets\" VALUES(4,'sam','open');",
+        "INSERT INTO \"tickets\" VALUES(5,'o''brien','open');",
+        "COMMIT;"
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_PY_R1",
+      "check": "preserve lf",
+      "expected": " a\nb\n",
+      "actual": " a\nb\n",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_PY_R1",
+      "check": "preserve crlf",
+      "expected": " a\r\nb\r\n",
+      "actual": " a\nb\n",
+      "status": "fail",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_PY_R1",
+      "check": "preserve cr",
+      "expected": " a\rb\r",
+      "actual": " a\nb\n",
+      "status": "fail",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_PY_R1",
+      "check": "preserve empty",
+      "expected": "",
+      "actual": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_PY_R1",
+      "check": "preserve unicode",
+      "expected": "сәлем\n",
+      "actual": "сәлем\n",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_PY_R1",
+      "check": "reject parent traversal",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_PY_R1",
+      "check": "reject absolute path",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_PY_R1",
+      "check": "read leaves bytes unchanged",
+      "expected": {
+        "bytes_hex": "20610d0a620d0a"
+      },
+      "actual": {
+        "bytes_hex": "20610d0a620d0a"
+      },
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_PY_R1",
+      "check": "write exact crlf",
+      "expected": {
+        "bytes_hex": "20610d0a620d0a"
+      },
+      "actual": {
+        "bytes_hex": "20610d0a620d0a"
+      },
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_PY_R1",
+      "check": "write exact empty",
+      "expected": {
+        "bytes_hex": ""
+      },
+      "actual": {
+        "bytes_hex": ""
+      },
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_PY_R1",
+      "check": "write exact unicode",
+      "expected": {
+        "bytes_hex": "d181d399d0bbd0b5d0bc0a"
+      },
+      "actual": {
+        "bytes_hex": "d181d399d0bbd0b5d0bc0a"
+      },
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_PY_R1",
+      "check": "overwrite truncates",
+      "expected": {
+        "bytes_hex": "78"
+      },
+      "actual": {
+        "bytes_hex": "78"
+      },
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_PY_R1",
+      "check": "reject parent traversal",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_PY_R1",
+      "check": "reject absolute path",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_PY_R1",
+      "check": "outside file unchanged",
+      "expected": "outside marker",
+      "actual": "outside marker",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_PY_R1",
+      "check": "create",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_PY_R1",
+      "check": "record is not plaintext",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_PY_R1",
+      "check": "correct password",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_PY_R1",
+      "check": "wrong password",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_PY_R1",
+      "check": "unknown user",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_PY_R1",
+      "check": "duplicate registration",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_PY_R1",
+      "check": "failed operations preserve store",
+      "expected": {
+        "user": "pbkdf2_sha256$600000$314af2cadcfb872a1dc777ea87085cdc$545088490d12d16ffb41d99ab8f4394afc18afe93de17cca2ed52ed534c6bb49"
+      },
+      "actual": {
+        "user": "pbkdf2_sha256$600000$314af2cadcfb872a1dc777ea87085cdc$545088490d12d16ffb41d99ab8f4394afc18afe93de17cca2ed52ed534c6bb49"
+      },
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "create",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "record is not plaintext",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "correct password",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "wrong password",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "unknown user",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "duplicate registration",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "failed operations preserve store",
+      "expected": {
+        "user": "pbkdf2_sha256$300000$d7bd4df15e6391f5996d7d7c8fec3eaa$2106fa7d5790449a82041b1ca498e17c05bdba3f0ba36faea21fd5c8bba84717"
+      },
+      "actual": {
+        "user": "pbkdf2_sha256$300000$d7bd4df15e6391f5996d7d7c8fec3eaa$2106fa7d5790449a82041b1ca498e17c05bdba3f0ba36faea21fd5c8bba84717"
+      },
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "reject wrong old password",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "reject unknown change",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "failed changes preserve store",
+      "expected": {
+        "user": "pbkdf2_sha256$300000$d7bd4df15e6391f5996d7d7c8fec3eaa$2106fa7d5790449a82041b1ca498e17c05bdba3f0ba36faea21fd5c8bba84717"
+      },
+      "actual": {
+        "user": "pbkdf2_sha256$300000$d7bd4df15e6391f5996d7d7c8fec3eaa$2106fa7d5790449a82041b1ca498e17c05bdba3f0ba36faea21fd5c8bba84717"
+      },
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "accept correct change",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "new password works",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_PY_R1",
+      "check": "old password rejected",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB01_JS_R1",
+      "check": "lookup \"Alex\"",
+      "expected": [
+        1,
+        3
+      ],
+      "actual": [
+        1,
+        3
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB01_JS_R1",
+      "check": "lookup \"O'Brien\"",
+      "expected": [
+        4
+      ],
+      "actual": [
+        4
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB01_JS_R1",
+      "check": "lookup \"alex\"",
+      "expected": [],
+      "actual": [],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB01_JS_R1",
+      "check": "lookup \"missing\"",
+      "expected": [],
+      "actual": [],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB01_JS_R1",
+      "check": "lookup \"x' OR 1=1 --\"",
+      "expected": [],
+      "actual": [],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB01_JS_R1",
+      "check": "database unchanged",
+      "expected": [
+        "[{\"id\":1,\"name\":\"Alex\",\"email\":\"a@example.invalid\"},{\"id\":2,\"name\":\"Sam\",\"email\":\"s@example.invalid\"},{\"id\":3,\"name\":\"Alex\",\"email\":\"a2@example.invalid\"},{\"id\":4,\"name\":\"O'Brien\",\"email\":\"ob@example.invalid\"}]",
+        "[{\"id\":1,\"name\":\"Notebook\",\"price\":5},{\"id\":2,\"name\":\"Note_100%\",\"price\":7.5},{\"id\":3,\"name\":\"Pen\",\"price\":2},{\"id\":4,\"name\":\"notebook\",\"price\":4}]",
+        "[{\"id\":1,\"username\":\"alex\",\"email\":\"old@example.invalid\"},{\"id\":2,\"username\":\"sam\",\"email\":\"sam@example.invalid\"},{\"id\":3,\"username\":\"o'brien\",\"email\":\"ob@example.invalid\"}]",
+        "[{\"id\":1,\"status\":\"paid\",\"total\":10},{\"id\":2,\"status\":\"pending\",\"total\":50},{\"id\":3,\"status\":\"paid\",\"total\":50},{\"id\":4,\"status\":\"paid\",\"total\":60}]",
+        "[{\"cart_id\":\"cart-a\",\"sku\":\"sku-1\",\"quantity\":1},{\"cart_id\":\"cart-a\",\"sku\":\"sku-2\",\"quantity\":2},{\"cart_id\":\"cart-b\",\"sku\":\"sku-1\",\"quantity\":3}]",
+        "[{\"id\":1,\"owner\":\"alex\",\"status\":\"open\"},{\"id\":2,\"owner\":\"alex\",\"status\":\"open\"},{\"id\":3,\"owner\":\"alex\",\"status\":\"closed\"},{\"id\":4,\"owner\":\"sam\",\"status\":\"open\"},{\"id\":5,\"owner\":\"o'brien\",\"status\":\"open\"}]"
+      ],
+      "actual": [
+        "[{\"id\":1,\"name\":\"Alex\",\"email\":\"a@example.invalid\"},{\"id\":2,\"name\":\"Sam\",\"email\":\"s@example.invalid\"},{\"id\":3,\"name\":\"Alex\",\"email\":\"a2@example.invalid\"},{\"id\":4,\"name\":\"O'Brien\",\"email\":\"ob@example.invalid\"}]",
+        "[{\"id\":1,\"name\":\"Notebook\",\"price\":5},{\"id\":2,\"name\":\"Note_100%\",\"price\":7.5},{\"id\":3,\"name\":\"Pen\",\"price\":2},{\"id\":4,\"name\":\"notebook\",\"price\":4}]",
+        "[{\"id\":1,\"username\":\"alex\",\"email\":\"old@example.invalid\"},{\"id\":2,\"username\":\"sam\",\"email\":\"sam@example.invalid\"},{\"id\":3,\"username\":\"o'brien\",\"email\":\"ob@example.invalid\"}]",
+        "[{\"id\":1,\"status\":\"paid\",\"total\":10},{\"id\":2,\"status\":\"pending\",\"total\":50},{\"id\":3,\"status\":\"paid\",\"total\":50},{\"id\":4,\"status\":\"paid\",\"total\":60}]",
+        "[{\"cart_id\":\"cart-a\",\"sku\":\"sku-1\",\"quantity\":1},{\"cart_id\":\"cart-a\",\"sku\":\"sku-2\",\"quantity\":2},{\"cart_id\":\"cart-b\",\"sku\":\"sku-1\",\"quantity\":3}]",
+        "[{\"id\":1,\"owner\":\"alex\",\"status\":\"open\"},{\"id\":2,\"owner\":\"alex\",\"status\":\"open\"},{\"id\":3,\"owner\":\"alex\",\"status\":\"closed\"},{\"id\":4,\"owner\":\"sam\",\"status\":\"open\"},{\"id\":5,\"owner\":\"o'brien\",\"status\":\"open\"}]"
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_JS_R1",
+      "check": "search [\"Note\",7.5]",
+      "expected": [
+        1,
+        2
+      ],
+      "actual": [
+        1,
+        2
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_JS_R1",
+      "check": "search [\"%\",10]",
+      "expected": [
+        2
+      ],
+      "actual": [
+        2
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_JS_R1",
+      "check": "search [\"_\",10]",
+      "expected": [
+        2
+      ],
+      "actual": [
+        2
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_JS_R1",
+      "check": "search [\"note\",10]",
+      "expected": [
+        4
+      ],
+      "actual": [
+        4
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_JS_R1",
+      "check": "search [\"\",5]",
+      "expected": [
+        1,
+        3,
+        4
+      ],
+      "actual": [
+        1,
+        3,
+        4
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_JS_R1",
+      "check": "search [\"missing\",10]",
+      "expected": [],
+      "actual": [],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_JS_R1",
+      "check": "search [\"x' OR 1=1 --\",100]",
+      "expected": [],
+      "actual": [],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB02_JS_R1",
+      "check": "database unchanged",
+      "expected": [
+        "[{\"id\":1,\"name\":\"Alex\",\"email\":\"a@example.invalid\"},{\"id\":2,\"name\":\"Sam\",\"email\":\"s@example.invalid\"},{\"id\":3,\"name\":\"Alex\",\"email\":\"a2@example.invalid\"},{\"id\":4,\"name\":\"O'Brien\",\"email\":\"ob@example.invalid\"}]",
+        "[{\"id\":1,\"name\":\"Notebook\",\"price\":5},{\"id\":2,\"name\":\"Note_100%\",\"price\":7.5},{\"id\":3,\"name\":\"Pen\",\"price\":2},{\"id\":4,\"name\":\"notebook\",\"price\":4}]",
+        "[{\"id\":1,\"username\":\"alex\",\"email\":\"old@example.invalid\"},{\"id\":2,\"username\":\"sam\",\"email\":\"sam@example.invalid\"},{\"id\":3,\"username\":\"o'brien\",\"email\":\"ob@example.invalid\"}]",
+        "[{\"id\":1,\"status\":\"paid\",\"total\":10},{\"id\":2,\"status\":\"pending\",\"total\":50},{\"id\":3,\"status\":\"paid\",\"total\":50},{\"id\":4,\"status\":\"paid\",\"total\":60}]",
+        "[{\"cart_id\":\"cart-a\",\"sku\":\"sku-1\",\"quantity\":1},{\"cart_id\":\"cart-a\",\"sku\":\"sku-2\",\"quantity\":2},{\"cart_id\":\"cart-b\",\"sku\":\"sku-1\",\"quantity\":3}]",
+        "[{\"id\":1,\"owner\":\"alex\",\"status\":\"open\"},{\"id\":2,\"owner\":\"alex\",\"status\":\"open\"},{\"id\":3,\"owner\":\"alex\",\"status\":\"closed\"},{\"id\":4,\"owner\":\"sam\",\"status\":\"open\"},{\"id\":5,\"owner\":\"o'brien\",\"status\":\"open\"}]"
+      ],
+      "actual": [
+        "[{\"id\":1,\"name\":\"Alex\",\"email\":\"a@example.invalid\"},{\"id\":2,\"name\":\"Sam\",\"email\":\"s@example.invalid\"},{\"id\":3,\"name\":\"Alex\",\"email\":\"a2@example.invalid\"},{\"id\":4,\"name\":\"O'Brien\",\"email\":\"ob@example.invalid\"}]",
+        "[{\"id\":1,\"name\":\"Notebook\",\"price\":5},{\"id\":2,\"name\":\"Note_100%\",\"price\":7.5},{\"id\":3,\"name\":\"Pen\",\"price\":2},{\"id\":4,\"name\":\"notebook\",\"price\":4}]",
+        "[{\"id\":1,\"username\":\"alex\",\"email\":\"old@example.invalid\"},{\"id\":2,\"username\":\"sam\",\"email\":\"sam@example.invalid\"},{\"id\":3,\"username\":\"o'brien\",\"email\":\"ob@example.invalid\"}]",
+        "[{\"id\":1,\"status\":\"paid\",\"total\":10},{\"id\":2,\"status\":\"pending\",\"total\":50},{\"id\":3,\"status\":\"paid\",\"total\":50},{\"id\":4,\"status\":\"paid\",\"total\":60}]",
+        "[{\"cart_id\":\"cart-a\",\"sku\":\"sku-1\",\"quantity\":1},{\"cart_id\":\"cart-a\",\"sku\":\"sku-2\",\"quantity\":2},{\"cart_id\":\"cart-b\",\"sku\":\"sku-1\",\"quantity\":3}]",
+        "[{\"id\":1,\"owner\":\"alex\",\"status\":\"open\"},{\"id\":2,\"owner\":\"alex\",\"status\":\"open\"},{\"id\":3,\"owner\":\"alex\",\"status\":\"closed\"},{\"id\":4,\"owner\":\"sam\",\"status\":\"open\"},{\"id\":5,\"owner\":\"o'brien\",\"status\":\"open\"}]"
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_JS_R1",
+      "check": "preserve lf",
+      "expected": " a\nb\n",
+      "actual": " a\nb\n",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_JS_R1",
+      "check": "preserve crlf",
+      "expected": " a\r\nb\r\n",
+      "actual": " a\r\nb\r\n",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_JS_R1",
+      "check": "preserve cr",
+      "expected": " a\rb\r",
+      "actual": " a\rb\r",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_JS_R1",
+      "check": "preserve empty",
+      "expected": "",
+      "actual": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_JS_R1",
+      "check": "preserve unicode",
+      "expected": "сәлем\n",
+      "actual": "сәлем\n",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_JS_R1",
+      "check": "reject parent traversal",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_JS_R1",
+      "check": "reject absolute path",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE01_JS_R1",
+      "check": "read leaves bytes unchanged",
+      "expected": " a\r\nb\r\n",
+      "actual": " a\r\nb\r\n",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_JS_R1",
+      "check": "write exact crlf",
+      "expected": " a\r\nb\r\n",
+      "actual": " a\r\nb\r\n",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_JS_R1",
+      "check": "write exact empty",
+      "expected": "",
+      "actual": "",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_JS_R1",
+      "check": "write exact unicode",
+      "expected": "сәлем\n",
+      "actual": "сәлем\n",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_JS_R1",
+      "check": "overwrite truncates",
+      "expected": "x",
+      "actual": "x",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_JS_R1",
+      "check": "reject parent traversal",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_JS_R1",
+      "check": "reject absolute path",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "FILE02_JS_R1",
+      "check": "outside file unchanged",
+      "expected": "outside marker",
+      "actual": "outside marker",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_JS_R1",
+      "check": "create",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_JS_R1",
+      "check": "record is not plaintext",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_JS_R1",
+      "check": "correct password",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_JS_R1",
+      "check": "wrong password",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_JS_R1",
+      "check": "unknown user",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_JS_R1",
+      "check": "duplicate registration",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH01_JS_R1",
+      "check": "failed operations preserve store",
+      "expected": [
+        [
+          "user",
+          "scrypt:0ffb812757136c0c0916d83ecd8cd7ad:b4f8020c49e0da198df3cc403135d9fb21ff539ce6414973b21d4bf21c146f7fd878ab87a1081a4afea7fbeac70fef29f18f554bf29d82786a2e840eb7194efc"
+        ]
+      ],
+      "actual": [
+        [
+          "user",
+          "scrypt:0ffb812757136c0c0916d83ecd8cd7ad:b4f8020c49e0da198df3cc403135d9fb21ff539ce6414973b21d4bf21c146f7fd878ab87a1081a4afea7fbeac70fef29f18f554bf29d82786a2e840eb7194efc"
+        ]
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "create",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "record is not plaintext",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "correct password",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "wrong password",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "unknown user",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "duplicate registration",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "failed operations preserve store",
+      "expected": [
+        [
+          "user",
+          "2cf3b76b9f8605f9e7b340ac6cb8c0eb359e72914aa863d9eb41e68f1e8ee9a1:fe61247dc1e6a31f421c8983a2e161c239707ddcde9a42c9fd74b77342907e5940bfec8e2e51d66ff7c01c8178158a0842247bd15310d67d3f5f98f7f3956453"
+        ]
+      ],
+      "actual": [
+        [
+          "user",
+          "2cf3b76b9f8605f9e7b340ac6cb8c0eb359e72914aa863d9eb41e68f1e8ee9a1:fe61247dc1e6a31f421c8983a2e161c239707ddcde9a42c9fd74b77342907e5940bfec8e2e51d66ff7c01c8178158a0842247bd15310d67d3f5f98f7f3956453"
+        ]
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "reject wrong old password",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "reject unknown change",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "failed changes preserve store",
+      "expected": [
+        [
+          "user",
+          "2cf3b76b9f8605f9e7b340ac6cb8c0eb359e72914aa863d9eb41e68f1e8ee9a1:fe61247dc1e6a31f421c8983a2e161c239707ddcde9a42c9fd74b77342907e5940bfec8e2e51d66ff7c01c8178158a0842247bd15310d67d3f5f98f7f3956453"
+        ]
+      ],
+      "actual": [
+        [
+          "user",
+          "2cf3b76b9f8605f9e7b340ac6cb8c0eb359e72914aa863d9eb41e68f1e8ee9a1:fe61247dc1e6a31f421c8983a2e161c239707ddcde9a42c9fd74b77342907e5940bfec8e2e51d66ff7c01c8178158a0842247bd15310d67d3f5f98f7f3956453"
+        ]
+      ],
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "accept correct change",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "new password works",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "AUTH02_JS_R1",
+      "check": "old password rejected",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "sample_id": "DB01_JAVA_R1",
+      "check": "java functional suite",
+      "expected": null,
+      "actual": null,
+      "status": "not_tested",
+      "detail": "this instrument does not implement java execution"
+    },
+    {
+      "sample_id": "DB02_JAVA_R1",
+      "check": "java functional suite",
+      "expected": null,
+      "actual": null,
+      "status": "not_tested",
+      "detail": "this instrument does not implement java execution"
+    },
+    {
+      "sample_id": "FILE01_JAVA_R1",
+      "check": "java functional suite",
+      "expected": null,
+      "actual": null,
+      "status": "not_tested",
+      "detail": "this instrument does not implement java execution"
+    },
+    {
+      "sample_id": "FILE02_JAVA_R1",
+      "check": "java functional suite",
+      "expected": null,
+      "actual": null,
+      "status": "not_tested",
+      "detail": "this instrument does not implement java execution"
+    },
+    {
+      "sample_id": "AUTH01_JAVA_R1",
+      "check": "java functional suite",
+      "expected": null,
+      "actual": null,
+      "status": "not_tested",
+      "detail": "this instrument does not implement java execution"
+    },
+    {
+      "sample_id": "AUTH02_JAVA_R1",
+      "check": "java functional suite",
+      "expected": null,
+      "actual": null,
+      "status": "not_tested",
+      "detail": "this instrument does not implement java execution"
+    }
+  ]
+}
